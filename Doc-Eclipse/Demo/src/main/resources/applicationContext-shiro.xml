@@ -51,19 +51,20 @@
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login" />
-		<property name="successUrl" value="/manage" />
+		<property name="successUrl" value="/back" />
 		<property name="filterChainDefinitions">
 			<value>
 				/login = authc
 				/logout = logout
-				/static/** = anon
-				/ = anon
-				/** = user
+				/back = user
+				
+				/public/** = anon
 				/index = anon
-				/activity = anon
 				/food = anon
 				/food-detail = anon
-				/back = user
+				/activity = anon
+				/login = anon
+				/register = anon
 			</value>
 		</property>
 	</bean>

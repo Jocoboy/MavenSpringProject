@@ -70,7 +70,7 @@
                     <div class="card h-100">
                         <img src="${ctx}\public\images\food\ngfg-sm.jpg" class="card-img-top w-100" alt="南瓜葡萄发糕">
                         <div class="card-body">
-                            <a href="food-detail.jsp">
+                            <a href="food-detail">
                                 <h5 class="card-title text-info">南瓜葡萄发糕</h5>
                             </a>
                             <p class="card-text"><small class="text-muted">2018-02-08</small></p>
