@@ -9,7 +9,6 @@ import org.springside.modules.utils.Encodes;
 
 import edu.zstu.dao.UserDao;
 import edu.zstu.enity.UserEnity;
-import edu.zstu.service.ShiroDbRealm.ShiroUser;
  
 @Component	
 @Transactional
