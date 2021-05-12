@@ -9,6 +9,7 @@ import org.springside.modules.utils.Encodes;
 
 import edu.zstu.dao.UserDao;
 import edu.zstu.enity.UserEnity;
+import edu.zstu.service.ShiroDbRealm.ShiroUser;
  
 @Component	
 @Transactional
@@ -40,11 +41,11 @@ public class UserService extends CrudService<UserEnity, UserDao> {
 		this.getDao().save(user);
 	}
 	
-//	public UserEnity getCurrUser(){
-//		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
-//		if(user!=null){
-//			return this.getDao().findOne(user.getId());
-//		}
-//		return null;
-//	}
+	public UserEnity getCurrUser(){
+		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
+		if(user!=null){
+			return this.getDao().findOne(user.getId());
+		}
+		return null;
+	}
 }

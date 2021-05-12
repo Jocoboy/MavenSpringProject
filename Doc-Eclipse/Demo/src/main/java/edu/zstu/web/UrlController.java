@@ -21,21 +21,6 @@ public class UrlController{
 		return "index";
 	}
 	
-	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public String login(){
-		return "login";
-	}
-	
-	@RequestMapping(value = "register", method = RequestMethod.GET)
-	public String register(){
-		return "register";
-	}
-	
-	@RequestMapping(value = "activity", method = RequestMethod.GET)
-	public String activity(){
-		return "activity";
-	}
-	 
 	@RequestMapping(value = "food", method = RequestMethod.GET)
 	public String food(){
 		return "food";
@@ -46,6 +31,23 @@ public class UrlController{
 		return "food-detail";
 	}
 	
+	@RequestMapping(value = "activity", method = RequestMethod.GET)
+	public String activity(){
+		return "activity";
+	}
+	 
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login(){
+		return "login";
+	}
+	
+	@RequestMapping(value = "register", method = RequestMethod.GET)
+	public String register(){
+		return "register";
+	}
+
+	
+	// just for test
 	@RequestMapping(value = "msg", method = RequestMethod.GET)
 	public String msg(Model model){
 		String[] a={"a","b","c"};
@@ -53,41 +55,8 @@ public class UrlController{
 		return "showMessage";
 	}
 	
-	@Autowired
-	private UserService userService;
+	
 
-	
-	/**
-	 * 检查用户名是否存在
-	 * return boolean
-	 * 存在返回false，不存在返回true
-	 *  */
-	@RequestMapping(value = "checkUsername", method = RequestMethod.GET)
-	public @ResponseBody boolean checkUsername(@RequestParam(value="Username")String Username ){
-		UserEnity user = this.userService.findByUserName(Username);
-		if(user !=null){
-			return false;
-		}
-		return  true;
-	}
-	
-	
-	/*
-	 * 写入用户注册数据(传参)
-	 * return string
-	 * */
-	@RequestMapping(value = "regUser", method = RequestMethod.POST)
-	public @ResponseBody String regUser(String Username,String Password){
-		UserEnity user = this.userService.findByUserName(Username);
-		if(user !=null){
-			return "{\"Success\":false,\"Msg\":\"该邮箱已被注册\"}";
-		}
-		UserEnity oUser = new UserEnity();
-		oUser.setUsername(Username);
-		oUser.setPassword(Password);
-		this.userService.regUser(oUser);
-		return "{\"Success\":true,\"Msg\":\"邮箱注册成功\"}";
-	}
 }
 
 
