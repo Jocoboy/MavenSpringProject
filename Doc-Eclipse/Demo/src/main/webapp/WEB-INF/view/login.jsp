@@ -56,11 +56,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-light active" type="button" id="btn_login">登录</button>
-                    <button class="btn btn-light" type="button" id="btn_register">注册</button>
-                </div>
-<%-- 				<jsp:include page="layout/info.jsp"/> --%>
+<!--                 <div class="col-sm-4"> -->
+<!--                     <button class="btn btn-light active" type="button" id="btn_login">登录</button> -->
+<!--                     <button class="btn btn-light" type="button" id="btn_register">注册</button> -->
+<!--                 </div> -->
+				<jsp:include page="layout/info.jsp"/>
             </div>
         </nav>
         <div class="jumbotron w-50 mx-auto bg-transparent">
@@ -68,7 +68,7 @@
             <img src="${ctx}\public\images\icons\leida.png" class="d-block" alt="Responsive image">
             <span class="text-center my-1 custom-text-adv"> 臻品生活，欢迎体验！</span>
             <hr class="my-1">
-            <form id="login_form" class="mx-auto mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+            <form action="${ctx}/login" method="post" id="login_form" class="mx-auto mt-5 shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 class="text-center custom-text-login mb-4" style="font-size: 2em;">亲，请登录</h1>
                 <div class="form-row">
                   <div class="form-group col-md-6 offset-md-3">
@@ -90,7 +90,7 @@
                     <label class="custom-control-label" for="customSwitch1">记住密码</label>
                   </div>
                 </div>
-                <button type="button" class="btn btn-dark col-md-3 offset-md-3 mb-5" id="btn_login_confirm">登录</button>
+                <button type="submit" class="btn btn-dark col-md-3 offset-md-3 mb-5" id="btn_login_confirm">登录</button>
               </form>
           </div>
           

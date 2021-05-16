@@ -57,11 +57,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-light" type="button" id="btn_login">登录</button>
-                    <button class="btn btn-light" type="button" id="btn_register">注册</button>
-                </div>
-<%-- 					<jsp:include page="layout/info.jsp"/> --%>
+<!--                 <div class="col-sm-4"> -->
+<!--                     <button class="btn btn-light" type="button" id="btn_login">登录</button> -->
+<!--                     <button class="btn btn-light" type="button" id="btn_register">注册</button> -->
+<!--                 </div> -->
+					<jsp:include page="layout/info.jsp"/>
             </div>
         </nav>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -142,7 +142,7 @@
                 <div class="card">
                     <img src="${ctx}\public\images\icons\wode.png" class="card-img-top w-50 mx-auto" alt="wode">
                     <div class="card-body">
-                        <a class="btn" href="${ctx}\back.jsp" id="link_back">
+                        <a class="btn" href="${ctx}\back" id="link_back">
                             <h5 class="card-title">我的</h5>
                         </a>
                         <p class="card-text"><small class="text-muted">更多个人信息查询管理。</small></p>
