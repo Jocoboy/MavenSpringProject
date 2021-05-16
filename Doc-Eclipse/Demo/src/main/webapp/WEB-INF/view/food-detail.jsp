@@ -57,11 +57,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-light" type="button" id="btn_login">登录</button>
-                    <button class="btn btn-light" type="button" id="btn_register">注册</button>
-                </div>
-<%-- 					<jsp:include page="layout/info.jsp"/> --%>
+<!--                 <div class="col-sm-4"> -->
+<!--                     <button class="btn btn-light" type="button" id="btn_login">登录</button> -->
+<!--                     <button class="btn btn-light" type="button" id="btn_register">注册</button> -->
+<!--                 </div> -->
+					<jsp:include page="layout/info.jsp"/>
             </div>
         </nav>
         <div class="container">

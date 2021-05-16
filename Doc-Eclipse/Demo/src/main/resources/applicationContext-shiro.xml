@@ -54,17 +54,16 @@
 		<property name="successUrl" value="/back" />
 		<property name="filterChainDefinitions">
 			<value>
-				/login = authc
-				/logout = logout
-				/back = user
-				
 				/public/** = anon
 				/index = anon
 				/food = anon
 				/food-detail = anon
 				/activity = anon
-				/login = anon
 				/register = anon
+				
+				/login = authc
+				/logout = logout
+				/** = user
 			</value>
 		</property>
 	</bean>

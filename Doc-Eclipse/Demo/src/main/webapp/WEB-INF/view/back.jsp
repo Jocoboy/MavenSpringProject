@@ -56,9 +56,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-light" type="button" id="btn_out">退出</button>
-                </div>
+<!--                 <div class="col-sm-4"> -->
+<!--                     <button class="btn btn-light" type="button" id="btn_out">退出</button> -->
+<!--                 </div> -->
+						<jsp:include page="layout/info.jsp"/>
             </div>
         </nav>
         <div class="list-back">
@@ -190,4 +191,5 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
 <script src="${ctx}/public/js/index.js"></script>
+<script src="${ctx}/public/js/logout.js"></script>
 </html>
