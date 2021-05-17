@@ -26,7 +26,7 @@ public class UserService extends CrudService<UserEnity, UserDao> {
 	}
 
 	public UserEnity findByUserName(String Username){
-		// TODO Auto-generated method stub
+		
 		return this.getDao().findByUsername(Username);
 	}
 	
