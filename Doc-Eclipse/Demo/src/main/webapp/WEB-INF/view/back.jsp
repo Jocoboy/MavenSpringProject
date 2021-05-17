@@ -123,55 +123,56 @@
                 </div>
 
                 <div class="my-publish-box no-show">
+                	<form  action="${ctx}/food/deploy" method="post"  enctype="multipart/form-data">
                     <div class="input-group mb-3">
                         <label for="food_name" class="font-weight-bold m-1 mr-4 text-right">美食名称</label>
-                        <input type="text" class="form-control" id="food_name" placeholder="请输入美食名称" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" name="food_name" class="form-control" id="food_name" placeholder="请输入美食名称" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                       </div>
                       <div class="input-group mb-3">
                         <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                        <input type="file" name="pic" id="food-pic" accept="image/png,image/gif,image/jpeg,image/jpg" />
+                        <input type="file" name="pic" id="food-pic" accept="image/*" required/>
                         <div id="image-holder"> </div>
                       </div>
                       <div class="input-group mb-3">
                         <label for="food_mat" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;材料</label>
-                        <input type="text" class="form-control" id="food_mat" placeholder="需要材料" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" name="food_mat" class="form-control" id="food_mat" placeholder="需要材料" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                       </div>
                       <div class="input-group mb-3">
                         <label for="food_stepnum" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤数</label>
-                        <input type="text" class="form-control" id="food_stepnum" placeholder="步骤数" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" name="food_stepnum" class="form-control" id="food_stepnum" placeholder="步骤数" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <button type="button" class="btn btn-success float-right ml-5">确定</button>
                     </div>
                     <div class="input-group mb-3">
                         <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤1</label>
-                        <input type="text" class="form-control" id="food_step1" placeholder="步骤1具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤1具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <div class="input-group mb-3 mt-3">
                             <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic" accept="image/png,image/gif,image/jpeg,image/jpg" />
+                            <input type="file" name="pic" id="food-pic" accept="image/*"  required/>
                             <div id="image-holder"> </div>
                           </div>
                     </div>
                     <div class="input-group mb-3">
                         <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤2</label>
-                        <input type="text" class="form-control" id="food_step1" placeholder="步骤2具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤2具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <div class="input-group mb-3 mt-3">
                             <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic" accept="image/png,image/gif,image/jpeg,image/jpg" />
+                            <input type="file" name="pic" id="food-pic" accept="image/*"  required/>
                             <div id="image-holder"> </div>
                           </div>
                     </div>
                     <div class="input-group mb-3">
                         <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤3</label>
-                        <input type="text" class="form-control" id="food_step1" placeholder="步骤3具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤3具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <div class="input-group mb-3 mt-3">
                             <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic" accept="image/png,image/gif,image/jpeg,image/jpg" />
+                            <input type="file" name="pic" id="food-pic" accept="image/*" required/>
                             <div id="image-holder"> </div>
                           </div>
                     </div>
                     <div class="input-group mb-3">
-                        <button type="button" class="btn btn-light mx-auto">提交</button>
+                        <button type="submit" class="btn btn-light mx-auto">提交</button>
                     </div>
-                 
+                 	</form>
                 </div>
               </div>
         </div>
