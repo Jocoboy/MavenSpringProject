@@ -21,7 +21,7 @@ public class FoodEnity extends BaseEnity {
 	private int Steps;
 	private int Likes;
 	
-	private List<FoodStepEnity> FoodStepList = new ArrayList<FoodStepEnity>();
+	private List<FoodStepEnity> FoodStepList;
 	
 	@ManyToOne(targetEntity = UserEnity.class)
 	@Cascade(value = {CascadeType.REFRESH })
