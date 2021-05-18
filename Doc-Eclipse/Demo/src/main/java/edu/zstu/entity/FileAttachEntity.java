@@ -1,4 +1,4 @@
-package edu.zstu.enity;
+package edu.zstu.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,14 +6,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "file_attach")
-public class FileAttachEnity extends BaseEnity{
+public class FileAttachEntity extends BaseEntity{
+	
+
 	private String FileName;
 	private String FilePath;
 	private String Ext;
 	private String FileType;
 	private String Note;
 	
-	@Column(name="FileName")
+	@Column(name = "Filename")
 	public String getFileName() {
 		return FileName;
 	}
@@ -21,7 +23,7 @@ public class FileAttachEnity extends BaseEnity{
 		FileName = fileName;
 	}
 	
-	@Column(name="FilePath")
+	@Column(name="Filepath")
 	public String getFilePath() {
 		return FilePath;
 	}
@@ -37,7 +39,7 @@ public class FileAttachEnity extends BaseEnity{
 		Ext = ext;
 	}
 	
-	@Column(name="FileType")
+	@Column(name="Filetype")
 	public String getFileType() {
 		return FileType;
 	}

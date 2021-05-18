@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zstu.enity.UserEnity;
+import edu.zstu.entity.UserEntity;
 import edu.zstu.service.UserService;
 
 @Controller
@@ -25,7 +25,7 @@ public class RegisterController {
 	 *  */
 	@RequestMapping(value = "checkUsername", method = RequestMethod.GET)
 	public @ResponseBody boolean checkUsername(@RequestParam(value="Username")String Username ){
-		UserEnity user = this.userService.findByUserName(Username);
+		UserEntity user = this.userService.findByUserName(Username);
 		if(user !=null){
 			return false;
 		}
@@ -39,11 +39,11 @@ public class RegisterController {
 	 * */
 	@RequestMapping(value = "regUser", method = RequestMethod.POST)
 	public @ResponseBody String regUser(String Username,String Password){
-		UserEnity user = this.userService.findByUserName(Username);
+		UserEntity user = this.userService.findByUserName(Username);
 		if(user !=null){
 			return "{\"Success\":false,\"Msg\":\"该邮箱已被注册\"}";
 		}
-		UserEnity oUser = new UserEnity();
+		UserEntity oUser = new UserEntity();
 		oUser.setUsername(Username);
 		oUser.setPassword(Password);
 		this.userService.regUser(oUser);

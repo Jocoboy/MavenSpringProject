@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.zstu.dao.FileAttachDao;
-import edu.zstu.enity.FileAttachEnity;
+import edu.zstu.entity.FileAttachEntity;
 
 @Component	
 @Transactional
-public class FileAttachService extends CrudService<FileAttachEnity, FileAttachDao> {
+public class FileAttachService extends CrudService<FileAttachEntity, FileAttachDao> {
 
 	@Autowired
 	private FileAttachDao fileAttachDao;
@@ -21,7 +21,7 @@ public class FileAttachService extends CrudService<FileAttachEnity, FileAttachDa
 	}
 
 	
-	public FileAttachEnity findByFileName(String FileName){
+	public FileAttachEntity findByFileName(String FileName){
 		return this.getDao().findByFileName(FileName);
 	}
 	

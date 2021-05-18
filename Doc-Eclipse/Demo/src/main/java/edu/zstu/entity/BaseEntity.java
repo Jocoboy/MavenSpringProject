@@ -1,4 +1,4 @@
-package edu.zstu.enity;
+package edu.zstu.entity;
 
 
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class BaseEnity {
+public abstract class BaseEntity {
 	
 	protected Long ID;
 

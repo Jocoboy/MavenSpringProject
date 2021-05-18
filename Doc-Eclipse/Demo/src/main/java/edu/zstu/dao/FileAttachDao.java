@@ -1,8 +1,8 @@
 package edu.zstu.dao;
 
-import edu.zstu.enity.FileAttachEnity;
+import edu.zstu.entity.FileAttachEntity;
 
 
-public interface FileAttachDao extends BaseDao<FileAttachEnity> {
-	FileAttachEnity findByFileName(String FileName);
+public interface FileAttachDao extends BaseDao<FileAttachEntity> {
+	FileAttachEntity findByFileName(String FileName);
 }

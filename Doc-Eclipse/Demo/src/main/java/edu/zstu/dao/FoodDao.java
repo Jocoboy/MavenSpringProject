@@ -1,7 +1,7 @@
 package edu.zstu.dao;
 
-import edu.zstu.enity.FoodEnity;
+import edu.zstu.entity.FoodEntity;
 
-public interface FoodDao extends BaseDao<FoodEnity> {
-	FoodEnity findByFoodName(String FoodName);
+public interface FoodDao extends BaseDao<FoodEntity> {
+	FoodEntity findByFoodName(String FoodName);
 }
