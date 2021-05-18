@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2021/5/17 15:14:13                           */
+/* Created on:     2021/5/18 11:28:26                           */
 /*==============================================================*/
 
 
@@ -34,11 +34,11 @@ alter table File_Attach comment '附件表';
 create table Food
 (
    ID                   int not null auto_increment,
-   User_ID              int,
-   File_ID              int,
-   Food_Name            varchar(100),
-   Deploy_Date          datetime,
-   Food_Material        text,
+   UserID               int,
+   FileID               int,
+   FoodName             varchar(100),
+   DeployDate           datetime,
+   FoodMaterial         text,
    Steps                int,
    Likes                int,
    primary key (ID)
@@ -52,10 +52,10 @@ alter table Food comment '美食主信息表';
 create table Food_Step
 (
    ID                   int not null auto_increment,
-   Food_ID              int,
-   File_ID              int,
-   Step_No              int,
-   Step_Desc            text,
+   FoodID               int,
+   FileID               int,
+   StepNo               int,
+   StepDesc             text,
    primary key (ID)
 );
 
@@ -76,15 +76,15 @@ create table System_User
 
 alter table System_User comment '系统用户表1';
 
-alter table Food add constraint FK_Reference_3 foreign key (User_ID)
+alter table Food add constraint FK_Reference_3 foreign key (UserID)
       references System_User (ID) on delete restrict on update restrict;
 
-alter table Food add constraint FK_Reference_4 foreign key (File_ID)
+alter table Food add constraint FK_Reference_4 foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
 
-alter table Food_Step add constraint FK_Reference_5 foreign key (Food_ID)
+alter table Food_Step add constraint FK_Reference_5 foreign key (FoodID)
       references Food (ID) on delete restrict on update restrict;
 
-alter table Food_Step add constraint FK_Reference_6 foreign key (File_ID)
+alter table Food_Step add constraint FK_Reference_6 foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
 

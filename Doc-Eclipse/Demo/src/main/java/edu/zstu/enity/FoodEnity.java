@@ -4,50 +4,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+@Entity
+@Table(name = "food")
 public class FoodEnity extends BaseEnity {
 	
 	
-	private int User_ID;
-	private int File_ID;
+	private int UserID;
+	private int FileID;
 	private String FoodName;
-	private String Deploy_Date;
-	private String Food_Material;
+	private String DeployDate;
+	private String FoodMaterial;
 	private int Steps;
 	private int Likes;
 	
 	private List<FoodStepEnity> FoodStepList;
 	
-	@ManyToOne(targetEntity = UserEnity.class)
-	@Cascade(value = {CascadeType.REFRESH })
-	@JoinColumn(name="User_ID")
-	public int getUser_ID() {
-		return User_ID;
-	}
-
-	public void setUser_ID(int user_ID) {
-		User_ID = user_ID;
-	}
 	
-	@ManyToOne(targetEntity = FileAttachEnity.class)
-	@Cascade(value = {CascadeType.REFRESH })
-	@JoinColumn(name="File_ID")
-	public int getFile_ID() {
-		return File_ID;
+	@OneToMany(targetEntity = FoodStepEnity.class)
+	@Cascade(value = {CascadeType.ALL })
+	@OrderBy("StepNo ASC")
+	public List<FoodStepEnity> getFoodStepList() {
+		return FoodStepList;
 	}
 
-	public void setFile_ID(int file_ID) {
-		File_ID = file_ID;
+	public void setFoodStepList(List<FoodStepEnity> foodStepList) {
+		FoodStepList = foodStepList;
 	}
 
 	
+//	@ManyToOne(targetEntity = UserEnity.class)
+//	@Cascade(value = {CascadeType.REFRESH })
+//	@JoinColumn(name="UserID")
+	public int getUserID() {
+		return UserID;
+	}
+
+	public void setUserID(int userID) {
+		UserID = userID;
+	}
 	
-	@Column(name="Food_Name")
+//	@ManyToOne(targetEntity = FileAttachEnity.class)
+//	@Cascade(value = {CascadeType.REFRESH })
+//	@JoinColumn(name="FileID")
+	public int getFileID() {
+		return FileID;
+	}
+
+	public void setFileID(int fileID) {
+		FileID = fileID;
+	}
+
+	
+	
+	@Column(name="FoodName")
 	public String getFoodName() {
 		return FoodName;
 	}
@@ -56,22 +75,22 @@ public class FoodEnity extends BaseEnity {
 		FoodName = foodName;
 	}
 
-	@Column(name="Deploy_Date")
-	public String getDeploy_Date() {
-		return Deploy_Date;
+	@Column(name="DeployDate")
+	public String getDeployDate() {
+		return DeployDate;
 	}
 
-	public void setDeploy_Date(String deploy_Date) {
-		Deploy_Date = deploy_Date;
+	public void setDeployDate(String deployDate) {
+		DeployDate = deployDate;
 	}
 
-	@Column(name="Food_Material")
-	public String getFood_Material() {
-		return Food_Material;
+	@Column(name="FoodMaterial")
+	public String getFoodMaterial() {
+		return FoodMaterial;
 	}
 
-	public void setFood_Material(String food_Material) {
-		Food_Material = food_Material;
+	public void setFoodMaterial(String foodMaterial) {
+		FoodMaterial = foodMaterial;
 	}
 
 	@Column(name="Steps")
@@ -92,13 +111,6 @@ public class FoodEnity extends BaseEnity {
 		Likes = likes;
 	}
 
-	public List<FoodStepEnity> getFoodStepList() {
-		return FoodStepList;
-	}
-
-	public void setFoodStepList(List<FoodStepEnity> foodStepList) {
-		FoodStepList = foodStepList;
-	}
 
 
 

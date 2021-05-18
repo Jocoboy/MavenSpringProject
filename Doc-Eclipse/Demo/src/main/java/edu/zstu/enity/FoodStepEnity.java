@@ -1,55 +1,59 @@
 package edu.zstu.enity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+@Entity
+@Table(name = "food_step")
 public class FoodStepEnity extends BaseEnity {
 	
-	private int Food_ID;
-	private int File_ID;
-	private int Step_No;
-	private String Step_Desc;
+	private int FoodID;
+	private int FileID;
+	private int StepNo;
+	private String StepDesc;
 	
-	@OneToMany
-	@Cascade(value = { CascadeType.ALL })
-	@JoinColumn(name="Food_ID")
-	@OrderBy("Step_No ASC")
-	public int getFood_ID() {
-		return Food_ID;
+//	@OneToMany(targetEntity = FoodEnity.class)
+//	@Cascade(value = { CascadeType.ALL })
+//	@JoinColumn(name="FoodID")
+//	@OrderBy("StepNo ASC")
+	public int getFoodID() {
+		return FoodID;
 	}
-	public void setFood_ID(int food_ID) {
-		Food_ID = food_ID;
-	}
-	
-	@OneToMany
-	@Cascade(value = { CascadeType.ALL })
-	@JoinColumn(name="File_ID")
-	@OrderBy("Step_No ASC")
-	public int getFile_ID() {
-		return File_ID;
-	}
-	public void setFile_ID(int file_ID) {
-		File_ID = file_ID;
+	public void setFoodID(int foodID) {
+		FoodID = foodID;
 	}
 	
-	@Column(name="Step_No")
-	public int getStep_No() {
-		return Step_No;
+//	@OneToMany(targetEntity = FileAttachEnity.class)
+//	@Cascade(value = { CascadeType.ALL })
+//	@JoinColumn(name="FileID")
+//	@OrderBy("StepNo ASC")
+	public int getFileID() {
+		return FileID;
 	}
-	public void setStep_No(int step_No) {
-		Step_No = step_No;
+	public void setFileID(int fileID) {
+		FileID = fileID;
 	}
 	
-	@Column(name="Step_Desc")
-	public String getStep_Desc() {
-		return Step_Desc;
+	@Column(name="StepNo")
+	public int getStepNo() {
+		return StepNo;
 	}
-	public void setStep_Desc(String step_Desc) {
-		Step_Desc = step_Desc;
+	public void setStepNo(int stepNo) {
+		StepNo = stepNo;
+	}
+	
+	@Column(name="StepDesc")
+	public String getStepDesc() {
+		return StepDesc;
+	}
+	public void setStepDesc(String stepDesc) {
+		StepDesc = stepDesc;
 	}
 }
