@@ -50,7 +50,7 @@ public class FoodController {
 			String Ext = fileType;
 			fileAttach.setExt(Ext);
 			String fileName = System.currentTimeMillis()+fileType;
-			fileAttach.setFileName(fileName);
+			fileAttach.setFileName(fileName);;
 			String filePath = request.getSession().getServletContext().getRealPath("/public/upload/" + fileName);
 			fileAttach.setFilePath(filePath);
 			
@@ -64,13 +64,13 @@ public class FoodController {
 		List<FoodStepEnity> foodStepList = new ArrayList<FoodStepEnity>();
 		for(int i = 0; i < stepsDesc.length; i++){
 			FoodStepEnity foodStepEnity = new FoodStepEnity();
-			foodStepEnity.setStep_No(i+1);
-			foodStepEnity.setStep_Desc(stepsDesc[i]);
+			foodStepEnity.setStepNo(i+1);
+			foodStepEnity.setStepDesc(stepsDesc[i]);
 			foodStepList.add(foodStepEnity);
 		}
 		food.setFoodStepList(foodStepList); 
 		food.setFoodName(foodName);
-		food.setFood_Material(foodMat);
+		food.setFoodMaterial(foodMat);
 		food.setSteps(stepNum);
 		
 		foodService.save(food);

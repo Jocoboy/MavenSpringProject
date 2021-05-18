@@ -129,9 +129,9 @@
                         <input type="text" name="food_name" class="form-control" id="food_name" placeholder="请输入美食名称" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                       </div>
                       <div class="input-group mb-3">
-                        <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                        <input type="file" name="pic" id="food-pic" accept="image/*" required/>
-                        <div id="image-holder"> </div>
+                        <label for="food_pic0" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
+                        <input type="file" name="pic" id="food-pic0" class="food-pic"  accept="image/*" required/>
+                        <div id="image-holder0" class="image-holder"> </div>
                       </div>
                       <div class="input-group mb-3">
                         <label for="food_mat" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;材料</label>
@@ -146,27 +146,27 @@
                         <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤1</label>
                         <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤1具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <div class="input-group mb-3 mt-3">
-                            <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic" accept="image/*"  required/>
-                            <div id="image-holder"> </div>
+                            <label for="food_pic1" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
+                            <input type="file" name="pic" id="food-pic1" class="food-pic" accept="image/*"  required/>
+                            <div id="image-holder1" class="image-holder"> </div>
                           </div>
                     </div>
                     <div class="input-group mb-3">
-                        <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤2</label>
-                        <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤2具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+                        <label for="food_step2" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤2</label>
+                        <input type="text" name="step_desc" class="form-control" id="food_step2" placeholder="步骤2具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <div class="input-group mb-3 mt-3">
-                            <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic" accept="image/*"  required/>
-                            <div id="image-holder"> </div>
+                            <label for="food_pic2" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
+                            <input type="file" name="pic" id="food-pic2" class="food-pic" accept="image/*"  required/>
+                            <div id="image-holder2" class="image-holder"> </div>
                           </div>
                     </div>
                     <div class="input-group mb-3">
-                        <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤3</label>
-                        <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤3具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+                        <label for="food_step3" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤3</label>
+                        <input type="text" name="step_desc" class="form-control" id="food_step3" placeholder="步骤3具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
                         <div class="input-group mb-3 mt-3">
-                            <label for="food_pic" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic" accept="image/*" required/>
-                            <div id="image-holder"> </div>
+                            <label for="food_pic3" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
+                            <input type="file" name="pic" id="food-pic3" class="food-pic" accept="image/*" required/>
+                            <div id="image-holder3" class="image-holder"> </div>
                           </div>
                     </div>
                     <div class="input-group mb-3">
