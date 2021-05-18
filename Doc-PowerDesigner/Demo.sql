@@ -26,7 +26,7 @@ create table File_Attach
    primary key (ID)
 );
 
-alter table File_Attach comment '¸½¼ş±í';
+alter table File_Attach comment 'é™„ä»¶è¡¨';
 
 /*==============================================================*/
 /* Table: Food                                                  */
@@ -44,7 +44,7 @@ create table Food
    primary key (ID)
 );
 
-alter table Food comment 'ÃÀÊ³Ö÷ĞÅÏ¢±í';
+alter table Food comment 'ç¾é£Ÿä¸»ä¿¡æ¯è¡¨';
 
 /*==============================================================*/
 /* Table: Food_Step                                             */
@@ -59,7 +59,7 @@ create table Food_Step
    primary key (ID)
 );
 
-alter table Food_Step comment 'ÃÀÊ³ÖÆ×÷·Ö²½ĞÅÏ¢±í';
+alter table Food_Step comment 'ç¾é£Ÿåˆ¶ä½œåˆ†æ­¥ä¿¡æ¯è¡¨';
 
 /*==============================================================*/
 /* Table: System_User                                           */
@@ -74,7 +74,7 @@ create table System_User
    primary key (ID)
 );
 
-alter table System_User comment 'ÏµÍ³ÓÃ»§±í1';
+alter table System_User comment 'ç³»ç»Ÿç”¨æˆ·è¡¨1';
 
 alter table Food add constraint FK_Reference_3 foreign key (UserID)
       references System_User (ID) on delete restrict on update restrict;

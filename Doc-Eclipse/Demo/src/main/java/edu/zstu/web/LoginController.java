@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springside.modules.security.utils.Digests;
 //import org.springside.modules.utils.Encodes;
 
-import edu.zstu.enity.UserEnity;
 import edu.zstu.service.ShiroDbRealm.ShiroUser;
+import edu.zstu.entity.UserEntity;
 import edu.zstu.service.UserService;
 
 @Controller
@@ -71,7 +71,7 @@ public class LoginController {
 	@RequestMapping(value = "getCurrUser", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getCurrUser(){
-		UserEnity currUser = userService.getCurrUser();
+		UserEntity currUser = userService.getCurrUser();
 		if(currUser == null){
 			return "";
 		}

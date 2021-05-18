@@ -8,12 +8,12 @@ import org.springside.modules.security.utils.Digests;
 import org.springside.modules.utils.Encodes;
 
 import edu.zstu.dao.UserDao;
-import edu.zstu.enity.UserEnity;
+import edu.zstu.entity.UserEntity;
 import edu.zstu.service.ShiroDbRealm.ShiroUser;
  
 @Component	
 @Transactional
-public class UserService extends CrudService<UserEnity, UserDao> {
+public class UserService extends CrudService<UserEntity, UserDao> {
 	
 	@Autowired
 	private UserDao userdao;
@@ -25,12 +25,12 @@ public class UserService extends CrudService<UserEnity, UserDao> {
 		return this.userdao;
 	}
 
-	public UserEnity findByUserName(String Username){
+	public UserEntity findByUserName(String Username){
 		
 		return this.getDao().findByUsername(Username);
 	}
 	
-	public void regUser(UserEnity user){
+	public void regUser(UserEntity user){
 		String opassword = user.getPassword();
 		byte[] salts = Digests.generateSalt(8); 
 		String salt = Encodes.encodeHex(salts);
@@ -41,7 +41,7 @@ public class UserService extends CrudService<UserEnity, UserDao> {
 		this.getDao().save(user);
 	}
 	
-	public UserEnity getCurrUser(){
+	public UserEntity getCurrUser(){
 		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
 		if(user!=null){
 			return this.getDao().findOne(user.getId());

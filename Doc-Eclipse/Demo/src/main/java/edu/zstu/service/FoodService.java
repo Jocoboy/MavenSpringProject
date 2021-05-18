@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.zstu.dao.FoodDao;
-import edu.zstu.enity.FoodEnity;
+import edu.zstu.entity.FoodEntity;
 
 @Component	
 @Transactional
-public class FoodService extends CrudService<FoodEnity, FoodDao> {
+public class FoodService extends CrudService<FoodEntity, FoodDao> {
 	
 	@Autowired
 	private FoodDao foodDao;
@@ -20,7 +20,7 @@ public class FoodService extends CrudService<FoodEnity, FoodDao> {
 		return this.foodDao;
 	}
 
-	public FoodEnity findByFoodName(String FoodName){
+	public FoodEntity findByFoodName(String FoodName){
 		return this.getDao().findByFoodName(FoodName);
 	}
 }

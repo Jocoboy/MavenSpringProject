@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zstu.enity.UserEnity;
+import edu.zstu.entity.UserEntity;
 import edu.zstu.service.UserService;
 
 @Controller

@@ -1,7 +1,7 @@
 package edu.zstu.dao;
 
-import edu.zstu.enity.UserEnity;
+import edu.zstu.entity.UserEntity;
 
-public interface UserDao extends BaseDao<UserEnity> {
-	UserEnity findByUsername(String Username);
+public interface UserDao extends BaseDao<UserEntity> {
+	UserEntity findByUsername(String Username);
 }

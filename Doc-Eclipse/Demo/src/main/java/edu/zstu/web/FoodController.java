@@ -3,6 +3,7 @@ package edu.zstu.web;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,18 +17,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import edu.zstu.enity.FileAttachEnity;
-import edu.zstu.enity.FoodEnity;
-import edu.zstu.enity.FoodStepEnity;
+import edu.zstu.entity.FileAttachEntity;
+import edu.zstu.entity.FoodEntity;
+import edu.zstu.entity.FoodStepEntity;
 import edu.zstu.service.FileAttachService;
 import edu.zstu.service.FoodService;
+import edu.zstu.service.UserService;
 
 @Controller
 @RequestMapping(value="/food")
 public class FoodController {
 	
 	@Autowired
+	private UserService userService;
+	@Autowired
 	private FileAttachService fileAttachService;
+	@Autowired
 	private FoodService foodService;
 	
 	@RequestMapping(value = "/deploy", method = RequestMethod.POST)
@@ -41,9 +46,12 @@ public class FoodController {
 			HttpServletRequest request
 	) throws IOException{
 		
+		FoodEntity food = new FoodEntity();
+		List<FoodStepEntity> foodStepList = new ArrayList<FoodStepEntity>();
 		//循环处理上传文件FileAttach
+		//循环处理美食制作分布数据
 		for(int i = 0 ; i < files.length ; i++){
-			FileAttachEnity fileAttach = new FileAttachEnity();
+			FileAttachEntity fileAttach = new FileAttachEntity();
 			CommonsMultipartFile file = files[i];
 			String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
 			fileAttach.setFileType(fileType);;
@@ -58,20 +66,26 @@ public class FoodController {
 			FileUtils.copyInputStreamToFile(file.getInputStream(), destFile);
 			
 			fileAttachService.save(fileAttach);
-		}
-		//循环处理美食制作分布数据
-		FoodEnity food = new FoodEnity();
-		List<FoodStepEnity> foodStepList = new ArrayList<FoodStepEnity>();
-		for(int i = 0; i < stepsDesc.length; i++){
-			FoodStepEnity foodStepEnity = new FoodStepEnity();
-			foodStepEnity.setStepNo(i+1);
-			foodStepEnity.setStepDesc(stepsDesc[i]);
-			foodStepList.add(foodStepEnity);
+			
+			if(i == 0){
+				food.setFileAttach(fileAttach);
+			}
+			else{
+				FoodStepEntity foodStepEnity = new FoodStepEntity();
+				foodStepEnity.setStepNo(i);
+				foodStepEnity.setStepDesc(stepsDesc[i-1]);
+				foodStepEnity.setFileAttach(fileAttach);
+				foodStepList.add(foodStepEnity);
+			}
 		}
 		food.setFoodStepList(foodStepList); 
+		food.setUser(userService.getCurrUser());
+		
 		food.setFoodName(foodName);
+		food.setDeployDate(new Date());
 		food.setFoodMaterial(foodMat);
 		food.setSteps(stepNum);
+		food.setLikes(0);
 		
 		foodService.save(food);
 		

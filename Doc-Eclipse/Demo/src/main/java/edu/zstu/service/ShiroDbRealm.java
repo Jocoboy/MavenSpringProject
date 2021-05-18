@@ -37,7 +37,7 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springside.modules.utils.Encodes;
 
-import edu.zstu.enity.UserEnity;
+import edu.zstu.entity.UserEntity;
 
 public class ShiroDbRealm extends AuthorizingRealm {
 
@@ -52,7 +52,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		UserEnity user = this.userService.findByUserName(token.getUsername());
+		UserEntity user = this.userService.findByUserName(token.getUsername());
 		if (user != null) {
 			byte[] salt = Encodes.decodeHex(user.getSalt());
 			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getUsername(),token.getHost(),new Date()),

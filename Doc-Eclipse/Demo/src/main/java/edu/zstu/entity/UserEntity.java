@@ -1,4 +1,4 @@
-package edu.zstu.enity;
+package edu.zstu.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +9,9 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "system_user")
-public class UserEnity extends BaseEnity {
+public class UserEntity extends BaseEntity {
 
+	
 	private String Username;
 	private String Password;
 	private String Salt;
