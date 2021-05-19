@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="my-publish-box no-show">
-                	<form  action="${ctx}/food/deploy" method="post"  enctype="multipart/form-data">
+                	<form  action="${ctx}/food/deploy" method="post"  enctype="multipart/form-data" id="food-publish-box">
                     <div class="input-group mb-3">
                         <label for="food_name" class="font-weight-bold m-1 mr-4 text-right">美食名称</label>
                         <input type="text" name="food_name" class="form-control" id="food_name" placeholder="请输入美食名称" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
@@ -140,38 +140,10 @@
                       <div class="input-group mb-3">
                         <label for="food_stepnum" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤数</label>
                         <input type="text" name="food_stepnum" class="form-control" id="food_stepnum" placeholder="步骤数" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                        <button type="button" class="btn btn-success float-right ml-5">确定</button>
+                        <button type="button" class="btn btn-success float-right ml-5" id="btn_stepConfirm">确定</button>
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="food_step1" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤1</label>
-                        <input type="text" name="step_desc" class="form-control" id="food_step1" placeholder="步骤1具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                        <div class="input-group mb-3 mt-3">
-                            <label for="food_pic1" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic1" class="food-pic" accept="image/*"  required/>
-                            <div id="image-holder1" class="image-holder"> </div>
-                          </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <label for="food_step2" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤2</label>
-                        <input type="text" name="step_desc" class="form-control" id="food_step2" placeholder="步骤2具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                        <div class="input-group mb-3 mt-3">
-                            <label for="food_pic2" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic2" class="food-pic" accept="image/*"  required/>
-                            <div id="image-holder2" class="image-holder"> </div>
-                          </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <label for="food_step3" class="font-weight-bold m-1 mr-4 text-right">&nbsp;&nbsp;&nbsp;&nbsp;步骤3</label>
-                        <input type="text" name="step_desc" class="form-control" id="food_step3" placeholder="步骤3具体操作" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                        <div class="input-group mb-3 mt-3">
-                            <label for="food_pic3" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>
-                            <input type="file" name="pic" id="food-pic3" class="food-pic" accept="image/*" required/>
-                            <div id="image-holder3" class="image-holder"> </div>
-                          </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <button type="submit" class="btn btn-light mx-auto">提交</button>
-                    </div>
+                  
+
                  	</form>
                 </div>
               </div>
@@ -193,4 +165,5 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
 <script src="${ctx}/public/js/index.js"></script>
 <script src="${ctx}/public/js/logout.js"></script>
+<script src="${ctx}/public/js/back.js"></script>
 </html>
