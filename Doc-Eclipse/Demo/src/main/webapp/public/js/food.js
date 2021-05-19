@@ -30,6 +30,7 @@ $(document).ready(function () {
 							bootstrapMajorVersion: 3, 	//版本
 							currentPage: data.currentPage, 	//当前页数
 							totalPages: data.pageCount, 		//总页数
+							size: "large",
 							itemTexts: function(type, page, current) {
 								switch(type) {
 									case "first":
@@ -50,21 +51,24 @@ $(document).ready(function () {
 							}
 						};
 					$('#example').bootstrapPaginator(options); 	
-				}					
+				}	
+				$('#example > li').addClass("mr-3");
+				
+				
 				$.each(data.records, function(index, item){
-					foodHtmls += '<div class="col-sm-6 col-md-4 col-lg-3 ">';
+					foodHtmls += '<div class="col-sm-6 col-md-4 col-lg-3  mt-5 "  style="margin:0 auto; text-align:center;">';
 					foodHtmls += '<div class="thumbnail">';
-					foodHtmls += '<a href="${ctx}/food-detail?id='+item.id+'" title="'+item.foodName+'" target="_blank" ><img class="lazy" src="'+item.fileAttach.filePath+'"   alt="'+item.foodName+'"></a>';
+					foodHtmls += '<a href="/Demo/food-detail?id='+item.id+'" title="'+item.foodName+'" target="_blank" ><img class="lazy " src="'+item.fileAttach.filePath+'"   alt="'+item.foodName+'"></a>';
 					foodHtmls += "<div class='caption'>";
 					var d=new Date(item.deployDate);
-					foodHtmls += '<div class="caption"> <h3><a href="${ctx}/food-detail?id='+item.id+'" title="'+item.foodName+'" target="_blank">'+item.foodName+'<br><small>'+d.toLocaleDateString()+'</small></a></h3>';
+					foodHtmls += '<div class="caption"> <h3><a href="/Demo//food-detail?id='+item.id+'" title="'+item.foodName+'" target="_blank">'+item.foodName+'<br><small>'+d.toLocaleDateString()+'</small></a></h3>';
 					foodHtmls +='<p>'+item.foodMaterial+'</p>  </div>';
 					foodHtmls += "</div>";
 					foodHtmls += "</div>";
 					foodHtmls += "</div>";
 				});
 			}else{
-				foodHtmls='<div class="row" id="food-container"> <div class="col-sm-6 col-md-4 col-lg-3 "><div class="thumbnail">'
+				foodHtmls='<div class="row " style="margin:0 auto; text-align:center;" id="food-container"> <div class="col-sm-6 col-md-4 col-lg-3 "><div class="thumbnail">'
 						+'<div class="caption"> <h3>No Records</h3></div></div></div>';
 			}
 			$("#food-container").html(foodHtmls);

@@ -60,10 +60,12 @@ public class FoodController {
 			String fileName = System.currentTimeMillis()+fileType;
 			fileAttach.setFileName(fileName);;
 //			String filePath = request.getSession().getServletContext().getRealPath("/public/upload/" + fileName);
-			String filePath = "/Demo/public/upload/" + fileName;
+			String realServerPath = "/Demo/public/upload/" + fileName;
+			String filePath = realServerPath;
 			fileAttach.setFilePath(filePath);
 			
-			File destFile = new File(filePath);
+			String absLocalPath = "D:/common/Documents/Github Repo/Jocoboy/MavenSpringProject/Doc-Eclipse/Demo/src/main/webapp/public/upload/"+ fileName;
+			File destFile = new File(absLocalPath);
 			FileUtils.copyInputStreamToFile(file.getInputStream(), destFile);
 			
 			fileAttachService.save(fileAttach);
