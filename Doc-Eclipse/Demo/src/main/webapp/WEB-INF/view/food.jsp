@@ -14,6 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx}/public/css/font-awesome.min.css">
+    <style>
+    		#food-container .thumbnail{
+				
+			}
+	        a:hover,a:visited,a:link,a:active{
+				text-decoration:none;
+			}
+			.navpager{
+				text-align:center;
+			}
+			#example li {cursor: pointer;}
+    </style>
     <title>臻品生活家-美食</title>
 </head>
 
@@ -111,8 +123,8 @@
     <div class="row" id="food-container">         
 		
     </div> <!-- 美食列表 row -->
-	<div class="row" style="margin:0 auto; text-align:center;">
-		<ul id='example'></ul>
+	<div class="row">
+		<ul id='example'  style="margin:0 auto; text-align:center;"></ul>
 	</div>
     <hr class="hr-divider">
             <footer class="navbar-fixed-bottom ">
