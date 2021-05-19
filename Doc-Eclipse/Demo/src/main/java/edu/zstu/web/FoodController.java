@@ -95,4 +95,6 @@ public class FoodController {
 		//返回页面
 		return "redirect:/food";
 	}
+	
+
 }

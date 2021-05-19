@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2021/5/18 11:28:26                           */
+/* Created on:     2021/5/19 22:23:51                           */
 /*==============================================================*/
 
 
@@ -11,6 +11,8 @@ drop table if exists Food;
 drop table if exists Food_Step;
 
 drop table if exists System_User;
+
+drop table if exists food_collect;
 
 /*==============================================================*/
 /* Table: File_Attach                                           */
@@ -26,7 +28,7 @@ create table File_Attach
    primary key (ID)
 );
 
-alter table File_Attach comment 'ÈôÑ‰ª∂Ë°®';
+alter table File_Attach comment '∏Ωº˛±Ì';
 
 /*==============================================================*/
 /* Table: Food                                                  */
@@ -44,7 +46,7 @@ create table Food
    primary key (ID)
 );
 
-alter table Food comment 'ÁæéÈ£ü‰∏ª‰ø°ÊÅØË°®';
+alter table Food comment '√¿ ≥÷˜–≈œ¢±Ì';
 
 /*==============================================================*/
 /* Table: Food_Step                                             */
@@ -59,7 +61,7 @@ create table Food_Step
    primary key (ID)
 );
 
-alter table Food_Step comment 'ÁæéÈ£üÂà∂‰ΩúÂàÜÊ≠•‰ø°ÊÅØË°®';
+alter table Food_Step comment '√¿ ≥÷∆◊˜∑÷≤Ω–≈œ¢±Ì';
 
 /*==============================================================*/
 /* Table: System_User                                           */
@@ -74,7 +76,21 @@ create table System_User
    primary key (ID)
 );
 
-alter table System_User comment 'Á≥ªÁªüÁî®Êà∑Ë°®1';
+alter table System_User comment 'œµÕ≥”√ªß±Ì1';
+
+/*==============================================================*/
+/* Table: food_collect                                          */
+/*==============================================================*/
+create table food_collect
+(
+   ID                   int not null auto_increment,
+   UserID               int,
+   FoodID               int,
+   Star                 bool,
+   primary key (ID)
+);
+
+alter table food_collect comment '√¿ ≥ ’≤ÿ±Ì';
 
 alter table Food add constraint FK_Reference_3 foreign key (UserID)
       references System_User (ID) on delete restrict on update restrict;
@@ -87,4 +103,10 @@ alter table Food_Step add constraint FK_Reference_5 foreign key (FoodID)
 
 alter table Food_Step add constraint FK_Reference_6 foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
+
+alter table food_collect add constraint FK_Reference_7 foreign key (UserID)
+      references System_User (ID) on delete restrict on update restrict;
+
+alter table food_collect add constraint FK_Reference_8 foreign key (FoodID)
+      references Food (ID) on delete restrict on update restrict;
 
