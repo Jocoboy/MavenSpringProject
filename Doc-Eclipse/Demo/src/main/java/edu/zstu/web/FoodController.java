@@ -59,7 +59,8 @@ public class FoodController {
 			fileAttach.setExt(Ext);
 			String fileName = System.currentTimeMillis()+fileType;
 			fileAttach.setFileName(fileName);;
-			String filePath = request.getSession().getServletContext().getRealPath("/public/upload/" + fileName);
+//			String filePath = request.getSession().getServletContext().getRealPath("/public/upload/" + fileName);
+			String filePath = "/Demo/public/upload/" + fileName;
 			fileAttach.setFilePath(filePath);
 			
 			File destFile = new File(filePath);
