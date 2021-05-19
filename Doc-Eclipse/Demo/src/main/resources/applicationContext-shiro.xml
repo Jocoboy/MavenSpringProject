@@ -61,6 +61,8 @@
 				/activity = anon
 				/register = anon
 				
+				/getFoodList = anon
+				
 				/login = authc
 				/logout = logout
 				/** = user

@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "food_step")
 public class FoodStepEntity extends BaseEntity {
@@ -30,6 +32,7 @@ public class FoodStepEntity extends BaseEntity {
 	@ManyToOne(targetEntity=FoodEntity.class)
 	@Cascade(value = {CascadeType.REFRESH })
 	@JoinColumn(name = "FoodID")
+	@JsonBackReference
 	public FoodEntity getFood() {
 		return food;
 	}

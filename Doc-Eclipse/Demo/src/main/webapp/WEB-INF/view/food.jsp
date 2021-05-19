@@ -65,207 +65,56 @@
             </div>
         </nav>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-4">
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\ngfg-sm.jpg" class="card-img-top w-100" alt="南瓜葡萄发糕">
-                        <div class="card-body">
-                            <a href="food-detail">
-                                <h5 class="card-title text-info">南瓜葡萄发糕</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-02-08</small></p>
-                            <p class="card-text">面粉、玉米面、温水、细砂糖、酵母粉、南瓜泥、葡萄干。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\ngyz-sm.jpg" class="card-img-top w-100" alt="南瓜酒酿小圆子">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">南瓜酒酿小圆子</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-28</small></p>
-                            <p class="card-text">面粉、糯米粉、酒酿、糖。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\xlmg-sm.jpg" class="card-img-top w-100" alt="雪梨银耳炖木瓜">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">雪梨银耳炖木瓜</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-18</small></p>
-                            <p class="card-text">银耳、雪梨、木瓜、冰糖。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\xrdb-sm.jpg" class="card-img-top w-100" alt="藜麦秋葵虾仁蛋饼">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">藜麦秋葵虾仁蛋饼</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-18</small></p>
-                            <p class="card-text">藜麦、虾仁、鸡蛋、秋葵、盐、黑胡椒。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\hjxl-sm.jpg" class="card-img-top w-100" alt="红酒雪梨">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">红酒雪梨</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2017-01-18</small></p>
-                            <p class="card-text">梨、红酒、冰糖、肉桂皮。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\ngfg-sm.jpg" class="card-img-top w-100" alt="南瓜葡萄发糕">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">南瓜葡萄发糕</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-02-08</small></p>
-                            <p class="card-text">面粉、玉米面、温水、细砂糖、酵母粉、南瓜泥、葡萄干。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\ngyz-sm.jpg" class="card-img-top w-100" alt="南瓜酒酿小圆子">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">南瓜酒酿小圆子</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-28</small></p>
-                            <p class="card-text">面粉、糯米粉、酒酿、糖。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\xlmg-sm.jpg" class="card-img-top w-100" alt="雪梨银耳炖木瓜">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">雪梨银耳炖木瓜</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-18</small></p>
-                            <p class="card-text">银耳、雪梨、木瓜、冰糖。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\xrdb-sm.jpg" class="card-img-top w-100" alt="藜麦秋葵虾仁蛋饼">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">藜麦秋葵虾仁蛋饼</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-18</small></p>
-                            <p class="card-text">藜麦、虾仁、鸡蛋、秋葵、盐、黑胡椒。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\hjxl-sm.jpg" class="card-img-top w-100" alt="红酒雪梨">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">红酒雪梨</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2017-01-18</small></p>
-                            <p class="card-text">梨、红酒、冰糖、肉桂皮。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\ngfg-sm.jpg" class="card-img-top w-100" alt="南瓜葡萄发糕">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">南瓜葡萄发糕</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-02-08</small></p>
-                            <p class="card-text">面粉、玉米面、温水、细砂糖、酵母粉、南瓜泥、葡萄干。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\ngyz-sm.jpg" class="card-img-top w-100" alt="南瓜酒酿小圆子">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">南瓜酒酿小圆子</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-28</small></p>
-                            <p class="card-text">面粉、糯米粉、酒酿、糖。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\xlmg-sm.jpg" class="card-img-top w-100" alt="雪梨银耳炖木瓜">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">雪梨银耳炖木瓜</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-18</small></p>
-                            <p class="card-text">银耳、雪梨、木瓜、冰糖。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\xrdb-sm.jpg" class="card-img-top w-100" alt="藜麦秋葵虾仁蛋饼">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">藜麦秋葵虾仁蛋饼</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2018-01-18</small></p>
-                            <p class="card-text">藜麦、虾仁、鸡蛋、秋葵、盐、黑胡椒。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src="${ctx}\public\images\food\hjxl-sm.jpg" class="card-img-top w-100" alt="红酒雪梨">
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title text-info">红酒雪梨</h5>
-                            </a>
-                            <p class="card-text"><small class="text-muted">2017-01-18</small></p>
-                            <p class="card-text">梨、红酒、冰糖、肉桂皮。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination  justify-content-center">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link" href="#">5</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+          		<p>	<p>	<p>
+			<div class="panel panel-default">
+				  <div class="panel-body">
+				    <span><strong>排序方式：</strong></span>
+				    <div class="btn-group" data-toggle="buttons">
+				    <label class="btn btn-default active">
+					    <input type="radio" name="options" id="option1" autocomplete="off" value="deployDate"> 发布日期
+					  </label>	
+					  <label class="btn btn-default">
+					    <input type="radio" name="options" id="option2" autocomplete="off" value="foodName">美食名称
+					  </label>
+					  <label class="btn btn-default">
+					    <input type="radio" name="options" id="option3" autocomplete="off" value="user.Username">发布人
+					  </label>	
+				  
+					</div>
+				    <br><br>
+				    <div id="queryForm">
+					    <form class="form-inline">
+						  <div class="form-group">
+						    <label for="txtFoodName">美食名称：</label>
+						    <input type="text" class="form-control" id="txtFoodName" placeholder="美食名称">
+						  </div>
+						  <div class="form-group">
+						    <label for="txtDeployUser">发布人：</label>
+						    <input type="text" class="form-control" id="txtDeployUser" placeholder="发布人：">
+						  </div>
+						  <div class="form-group">
+						    <label for="dateB">发布日期：</label>
+						    <input type="date" class="form-control" id="dateB">
+						  </div>
+						  <div class="form-group">
+						    <label for="dateE">至</label>
+						    <input type="date" class="form-control" id="dateE">
+						  </div>
+						  <input type="button" name="query" id="query" value="查询" class ="btn btn-primary">
+		        		  <input type="reset" name="reset" id="reset" value="重置" class ="btn btn-primary">
+						</form>
+					</div>
+				  </div>
+			</div>
+    
+         <!-- 美食列表 -->
+    <div class="row" id="food-container">         
+		
+    </div> <!-- 美食列表 row -->
+	<div class="row" style="margin:0 auto; text-align:center;">
+		<ul id='example'></ul>
+	</div>
+    <hr class="hr-divider">
             <footer class="navbar-fixed-bottom ">
                 <div class="container mt-5">
                     <div class="justify-content-left">
@@ -282,6 +131,7 @@
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script src="${ctx}/public/js/bootstrap-paginator.min.js"></script>
 <script src="${ctx}/public/js/index.js"></script>
-
+<script src="${ctx}/public/js/food.js"></script>
 </html>
