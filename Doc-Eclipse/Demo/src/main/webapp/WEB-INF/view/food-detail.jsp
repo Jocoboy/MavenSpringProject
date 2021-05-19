@@ -4,6 +4,8 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <html lang="en">
@@ -65,31 +67,22 @@
             </div>
         </nav>
         <div class="container">
-            <h1>南瓜葡萄发糕</h1>
+            <h1><c:out value="${food.foodName}"/></h1>
             <button class="btn"> <i class="fa fa-heart-o" aria-hidden="true"></i>
                 收藏</button>
             <button class="btn"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                12人</button>
+               <c:out value="${food.Likes}"/>人</button>
             <hr>
             <div class="">
-                <p>2018-01-16</p>
-                <img src="${ctx}\public\images\food\ngfg01.jpg" alt="ngfg01" class="d-block">
+                <p><fmt:formatDate value="${food.deployDate}" pattern="yyyy-MM-dd"/></p>
+                <img src="${fileAttach.filePath}" alt="${food.foodName}" class="d-block">
                 <p>
                     素材：<br>
-                    面粉200g、玉米面50g、温水100g、细砂糖20g、酵母粉4g、南瓜泥120g、葡萄干50g<br>
+                     <c:out value="${food.foodMaterial}"/><br>
                     步骤：<br>
-                    1.将南瓜去籽去皮，放入大碗中，进入方太蒸箱蒸20分钟至熟。
-                    <img src="${ctx}\public\images\food\ngfg02.jpg" alt="ngfg02" class="d-block">
-                    2.将南瓜去籽去皮，放入大碗中，进入方太蒸箱蒸20分钟至熟。
-                    <img src="${ctx}\public\images\food\ngfg03.jpg" alt="ngfg03" class="d-block">
-                    3.取出蒸好的南瓜，捣成南瓜泥。
-                    <img src="${ctx}\public\images\food\ngfg04.jpg" alt="ngfg04" class="d-block">
-                    4.面粉中间开窝，加入水，拌均匀。再放入南瓜泥、葡萄干拌均匀。
-                    <img src="${ctx}\public\images\food\ngfg05.jpg" alt="ngfg05" class="d-block">
-                    5.用力搓揉光滑面团。用保鲜膜覆盖大概1个半小时，发酵到两倍大，再取出搓揉一分钟把气排掉。
-                    <img src="${ctx}\public\images\food\ngfg06.jpg" alt="ngfg06" class="d-block">
-                    6.蛋糕模具内抹上一点油，将面团放入按压平整，覆盖好保鲜膜，醒20分钟后放入方太蒸箱蒸25分钟即可。
-                    <img src="images\food\ngfg07.jpg" alt="ngfg07" class="d-block">
+                    <c:forEach var="foodStep" items="${food.steps}" varStatus="varStep" />
+                    	<c:out value="${foodStep.stepDesc}"/>
+                   		<img src="${fileAttach.filePath}" alt="${foodStep.stepNo}" class="d-block">
                 </p>
             </div>
             
