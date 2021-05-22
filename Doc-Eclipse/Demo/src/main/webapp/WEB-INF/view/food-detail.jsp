@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    
+<%@ page isELIgnored="false" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
 
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
@@ -67,22 +69,31 @@
             </div>
         </nav>
         <div class="container">
-            <h1><c:out value="${food.foodName}"/></h1>
-            <button class="btn"> <i class="fa fa-heart-o" aria-hidden="true"></i>
-                收藏</button>
+            <h1><c:out value="${food.foodName}" default="null"></c:out></h1>
+            <button class="btn"> 
+            	<c:if test="${collectFlag==null || collectFlag==false}">
+            	 	<i class="fa fa-heart-o" aria-hidden="true"></i>
+            	</c:if>
+           		<c:if test="${collectFlag!=null && collectFlag==true}">
+            	 	<i class="fa fa-heart" aria-hidden="true"></i>
+            	</c:if>
+                	收藏
+            </button>
             <button class="btn"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-               <c:out value="${food.Likes}"/>人</button>
+               <c:out value="${food.likes}" default="null"></c:out>人
+            </button>
             <hr>
             <div class="">
                 <p><fmt:formatDate value="${food.deployDate}" pattern="yyyy-MM-dd"/></p>
-                <img src="${fileAttach.filePath}" alt="${food.foodName}" class="d-block">
+                <img src="${food.fileAttach.filePath}" alt="${food.foodName}" class="d-block w-50">
                 <p>
                     素材：<br>
-                     <c:out value="${food.foodMaterial}"/><br>
+                    <c:out value="${food.foodMaterial}" default="null"></c:out><br><br>
                     步骤：<br>
-                    <c:forEach var="foodStep" items="${food.steps}" varStatus="varStep" />
-                    	<c:out value="${foodStep.stepDesc}"/>
-                   		<img src="${fileAttach.filePath}" alt="${foodStep.stepNo}" class="d-block">
+                    <c:forEach var="foodStep" items="${food.foodStepList}" varStatus="varStep" >
+                    	<c:out value="${foodStep.stepDesc}" default="null"></c:out>
+                   		<img src="${foodStep.fileAttach.filePath}" alt="${foodStep.stepNo}" class="d-block">
+                	</c:forEach>
                 </p>
             </div>
             

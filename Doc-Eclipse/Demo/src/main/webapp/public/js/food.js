@@ -58,10 +58,10 @@ $(document).ready(function () {
 				$.each(data.records, function(index, item){
 					foodHtmls += '<div class="col-sm-6 col-md-4 col-lg-3  mt-5 "  style="margin:0 auto; text-align:center;">';
 					foodHtmls += '<div class="thumbnail">';
-					foodHtmls += '<a href="/Demo/food-detail?id='+item.id+'" title="'+item.foodName+'" target="_blank" ><img class="lazy w-75" src="'+item.fileAttach.filePath+'"   alt="'+item.foodName+'"></a>';
+					foodHtmls += '<a href="/Demo/food-detail?id='+item.id+'" title="'+item.foodName+'" target="_self" ><img class="lazy w-75" src="'+item.fileAttach.filePath+'"   alt="'+item.foodName+'"></a>';
 					foodHtmls += "<div class='caption'>";
 					var d=new Date(item.deployDate);
-					foodHtmls += '<div class="caption"> <h3><a href="/Demo//food-detail?id='+item.id+'" title="'+item.foodName+'" target="_blank">'+item.foodName+'<br><small>'+d.toLocaleDateString()+'</small></a></h3>';
+					foodHtmls += '<div class="caption"> <h3><a href="/Demo/food-detail?id='+item.id+'" title="'+item.foodName+'" target="_self">'+item.foodName+'<br><small>'+d.toLocaleDateString()+'</small></a></h3>';
 					foodHtmls +='<p>'+item.foodMaterial+'</p>  </div>';
 					foodHtmls += "</div>";
 					foodHtmls += "</div>";
