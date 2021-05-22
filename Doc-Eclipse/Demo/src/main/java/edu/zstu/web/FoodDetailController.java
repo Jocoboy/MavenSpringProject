@@ -59,4 +59,35 @@ public class FoodDetailController {
 		}
 		return false;
 	}
+	
+	@RequestMapping(value="addCollect",method = RequestMethod.GET)
+	public @ResponseBody Boolean addCollect(@RequestParam("id") Long id){
+		UserEntity user = this.userService.getCurrUser();
+		if(user!=null){
+			FoodEntity  food = this.foodService.findOne(id);
+			if(food!=null){
+				FoodCollectEntity collect = new FoodCollectEntity();
+				collect.setFood(food);
+				collect.setUser(user);
+				this.foodCollectService.save(collect);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@RequestMapping(value="cancelCollect",method = RequestMethod.GET)
+	public @ResponseBody Boolean cancelCollect(@RequestParam("id") Long id){
+		UserEntity user = this.userService.getCurrUser();
+		if(user!=null){
+			FoodEntity food = this.foodService.findOne(id);
+			if(food!=null){
+				List<FoodCollectEntity> collectList = this.foodCollectService.findByUserAndFood(user, food);
+				this.foodCollectService.delete(collectList.get(0).getId());
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }

@@ -71,15 +71,24 @@
         <div class="container">
         	<span style="display:none;" id="foodId"><c:out value="${food.id}" default="null"></c:out></span>
             <h1><c:out value="${food.foodName}" default="null"></c:out></h1>
-            <button class="btn"> 
+         
             	<c:if test="${collectFlag==null || collectFlag==false}">
-            	 	<i class="fa fa-heart-o" aria-hidden="true"></i>
+            	   <button class="btn" id="btn_addCollect"> 
+            	 		<i class="fa fa-heart-o" aria-hidden="true"></i>
+            	 		收藏
+            	 	</button>
+            	 	
             	</c:if>
+            	
            		<c:if test="${collectFlag!=null && collectFlag==true}">
-            	 	<i class="fa fa-heart" aria-hidden="true"></i>
+           			<button class="btn" id="btn_cancelCollect"> 
+            	 		<i class="fa fa-heart" aria-hidden="true"></i>
+            	 	 	取消收藏
+            	 	</button>
+            	 	
             	</c:if>
-                	收藏
-            </button>
+               
+         
             <button class="btn" id="btn_like"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                <c:out value="${food.likes}" default="null"></c:out>人
             </button>
