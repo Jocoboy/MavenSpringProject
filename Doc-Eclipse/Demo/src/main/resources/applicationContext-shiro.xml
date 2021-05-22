@@ -66,6 +66,8 @@
 				
 				/login = authc
 				/logout = logout
+				/addCollect = user
+				/cancelCollect = user
 				/** = user
 			</value>
 		</property>
