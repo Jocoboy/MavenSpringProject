@@ -25,7 +25,7 @@ public class FoodDetailController {
 	@Autowired
 	private FoodCollectService foodCollectService;
 	
-	@RequestMapping(value="/foodDetail")
+	@RequestMapping(value="/food-detail")
 	public String foodDetail(@RequestParam(value="id")Long id,Model model){
 		if(id!=null & id.longValue()!=0){
 			FoodEntity food = this.foodService.findOne(id);
