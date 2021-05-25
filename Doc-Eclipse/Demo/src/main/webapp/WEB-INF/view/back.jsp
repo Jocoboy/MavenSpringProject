@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    
+<%@ page isELIgnored="false" %>        
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <html lang="en">
@@ -81,9 +83,14 @@
                         <h3 class="text-light p-2" style="font-size: 1em;">我收藏的美食</h3>
                       </div>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-c1 m-3"><a href="#" class="c1">南瓜葡萄发糕</a></li>
-                        <li class="list-group-item bg-c1 m-3"><a href="#" class="c1">雪梨银耳炖木瓜</a></li>
-                        <li class="list-group-item bg-c1 m-3"><a href="#" class="c1">南瓜酒酿小圆子</a></li>
+                      	<c:out value="${collectList}" default="null"></c:out>
+                        <c:forEach var="collectItem" items="${collectList}" varStatus="varCollect" >
+	                         <li class="list-group-item bg-c1 m-3">
+		                         <a href="${ctx}/food-detail?id=<c:out value="${collectItem.food.id}" default="null"></c:out>" class="c1">
+		                         	<c:out value="${collectItem.food.foodName}" default="null"></c:out>
+		                         </a>
+		                     </li>
+                		</c:forEach>
                       </ul>
                   </div>
 

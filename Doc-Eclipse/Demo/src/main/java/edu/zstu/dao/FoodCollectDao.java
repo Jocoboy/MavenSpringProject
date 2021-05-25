@@ -8,4 +8,6 @@ import edu.zstu.entity.UserEntity;
 
 public interface FoodCollectDao extends BaseDao<FoodCollectEntity> {
 	List<FoodCollectEntity> findByUserAndFood(UserEntity User,FoodEntity Food);
+	
+	List<FoodCollectEntity> findByUser(UserEntity User);
 }
