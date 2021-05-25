@@ -26,4 +26,8 @@ public class FoodCollectService extends CrudService<FoodCollectEntity, FoodColle
 	public List<FoodCollectEntity> findByUserAndFood(UserEntity User,FoodEntity Food){
 		return this.getDao().findByUserAndFood(User,Food);
 	}
+	
+	public List<FoodCollectEntity> findByUser(UserEntity User){
+		return this.getDao().findByUser(User);
+	}
 }

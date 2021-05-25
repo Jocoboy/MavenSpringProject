@@ -4,6 +4,12 @@
 
 $(document).ready(function () {
 	
+	$.get("collectedFoods",function(data){
+		if(!data){
+			alert("请先登录");
+		}
+	});
+	
 	$("#btn_stepConfirm").click(function(){
 		var stepNum = $("input[name='food_stepnum']").val();
 		$(".stepDiv").remove();
