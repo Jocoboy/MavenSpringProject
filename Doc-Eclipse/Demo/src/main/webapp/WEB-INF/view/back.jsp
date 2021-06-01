@@ -156,7 +156,7 @@
                  
                  
                   <div class="my-publish-box2 no-show">
-                	<form  action="${ctx}/" method="post"  enctype="multipart/form-data" id="activity-publish-box">
+                	<form  action="${ctx}/activity/deploy" method="post"  enctype="multipart/form-data" id="activity-publish-box">
                    
                        <div class="input-group mb-3">
  							<label for="activity_name" class="font-weight-bold m-1 mr-4 text-right">活动名称</label>
@@ -180,12 +180,12 @@
  						
  							<div class="col-6">
 	 							<label for="activity_startDate" class="font-weight-bold m-1 mr-4 text-right">活动开始时间</label>
-	                        	<input type="text" name="activity_startDate" class="form-control" id="activity_startDate" placeholder="请输入活动开始时间" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+	                        	<input type="datetime-local" name="activity_startDate" class="form-control" id="activity_startDate" placeholder="请输入活动开始时间"  required/>
                         	</div>
                         	
                         	<div class="col-6">
 	                        	<label for="activity_endDate" class="font-weight-bold m-1 mr-4 text-right">活动截止时间</label>
-	                        	<input type="text" name="activity_endDate" class="form-control" id="activity_endDate" placeholder="请输入活动截止时间" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+	                        	<input type="datetime-local" name="activity_endDate" class="form-control" id="activity_endDate" placeholder="请输入活动截止时间" required/>
  							</div>
  						</div>
  						

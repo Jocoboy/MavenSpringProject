@@ -2,8 +2,8 @@ package edu.zstu.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,52 +18,54 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import edu.zstu.entity.FileAttachEntity;
-import edu.zstu.entity.FoodEntity;
-import edu.zstu.entity.FoodStepEntity;
+import edu.zstu.entity.FoodActivityEntity;
 import edu.zstu.service.FileAttachService;
-import edu.zstu.service.FoodService;
+import edu.zstu.service.FoodActivityService;
 import edu.zstu.service.UserService;
 
 @Controller
-@RequestMapping(value="/food")
-public class FoodController {
-	
-	@Autowired
-	private UserService userService;
+@RequestMapping(value="/activity")
+public class ActivityController {
+
 	@Autowired
 	private FileAttachService fileAttachService;
 	@Autowired
-	private FoodService foodService;
+	private FoodActivityService foodActivityService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value = "/deploy", method = RequestMethod.POST)
 	public @ResponseBody String handleDeployDatas
 	(
 			@RequestParam(value="pic")CommonsMultipartFile[] files,
-			@RequestParam(value="step_desc")String[] stepsDesc,
-			@RequestParam(value="food_name")String foodName,
-			@RequestParam(value="food_mat")String foodMat,
-			@RequestParam(value="food_stepnum")int stepNum,
+			@RequestParam(value="activity_name")String activityName,
+			@RequestParam(value="activity_location")String activityLocation,
+			@RequestParam(value="activity_location_detail")String activityLocationDetail,
+			@RequestParam(value="activity_startDate")Date startDate,
+			@RequestParam(value="activity_endDate")Date endDate,
+			@RequestParam(value="activity_description")String activityDescription,
+			@RequestParam(value="activity_postnum")int activityPostnum,
 			HttpServletRequest request
 	) throws IOException{
 		
-		FoodEntity food = new FoodEntity();
-		List<FoodStepEntity> foodStepList = new ArrayList<FoodStepEntity>();
-		//循环处理上传文件FileAttach
-		//循环处理美食制作分布数据
+		
+		FoodActivityEntity activity = new FoodActivityEntity();
+		List<FileAttachEntity> fileAttachList = new ArrayList<FileAttachEntity>();
+		
 		for(int i = 0 ; i < files.length ; i++){
 			FileAttachEntity fileAttach = new FileAttachEntity();
 			CommonsMultipartFile file = files[i];
 			String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
-			fileAttach.setFileType(fileType);;
+			fileAttach.setFileType(fileType);
 			String Ext = fileType;
 			fileAttach.setExt(Ext);
 			String fileName = System.currentTimeMillis()+fileType;
-			fileAttach.setFileName(fileName);;
-//			String filePath = request.getSession().getServletContext().getRealPath("/public/upload/" + fileName);
+			fileAttach.setFileName(fileName);
 			String realServerPath = "/Demo/public/upload/" + fileName;
 			String filePath = realServerPath;
 			fileAttach.setFilePath(filePath);
-			fileAttach.setNote("food pic");
+			fileAttach.setNote("activity pic");
 			
 			String absLocalPath = "D:/common/Documents/Github Repo/Jocoboy/MavenSpringProject/Doc-Eclipse/Demo/src/main/webapp/public/upload/"+ fileName;
 			File destFile = new File(absLocalPath);
@@ -72,30 +74,23 @@ public class FoodController {
 			fileAttachService.save(fileAttach);
 			
 			if(i == 0){
-				food.setFileAttach(fileAttach);
+				activity.setFileAttach(fileAttach);
 			}
-			else{
-				FoodStepEntity foodStepEnity = new FoodStepEntity();
-				foodStepEnity.setStepNo(i);
-				foodStepEnity.setStepDesc(stepsDesc[i-1]);
-				foodStepEnity.setFileAttach(fileAttach);
-				foodStepList.add(foodStepEnity);
-			}
+			fileAttachList.add(fileAttach);
 		}
-		food.setFoodStepList(foodStepList); 
-		food.setUser(userService.getCurrUser());
+		activity.setTitle(activityName);
+		activity.setLocation(activityLocation);
+		activity.setDetailLocation(activityLocationDetail);
+		activity.setStartDate(startDate);
+		activity.setEndDate(endDate);
+		activity.setDescription(activityDescription);
 		
-		food.setFoodName(foodName);
-		food.setDeployDate(new Date());
-		food.setFoodMaterial(foodMat);
-		food.setSteps(stepNum);
-		food.setLikes(0);
+		activity.setPostNum(activityPostnum);
+		activity.setFileAttachList(fileAttachList);
+		activity.setUser(userService.getCurrUser());
 		
-		foodService.save(food);
+		foodActivityService.save(activity);
 		
-		//返回页面
-		return "redirect:/food";
+		return "redirect:/activity";
 	}
-	
-
 }

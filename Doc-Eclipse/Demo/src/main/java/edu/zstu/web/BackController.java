@@ -36,7 +36,7 @@ public class BackController {
 			List<FoodCollectEntity> collectList = this.foodCollectService.findByUser(user);
 			if(collectList != null && collectList.size() > 0){
 				model.addAttribute("collectList", collectList);
-				System.out.println("collects have been saved with size "+ collectList.size());
+//				System.out.println("collects have been saved with size "+ collectList.size());
 				return true;
 			}
 			return false;
