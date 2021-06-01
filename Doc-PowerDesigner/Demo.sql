@@ -1,12 +1,14 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2021/5/19 22:23:51                           */
+/* Created on:     2021/6/1 11:09:03                            */
 /*==============================================================*/
 
 
 drop table if exists File_Attach;
 
 drop table if exists Food;
+
+drop table if exists Food_Activity;
 
 drop table if exists Food_Step;
 
@@ -49,6 +51,25 @@ create table Food
 alter table Food comment '美食主信息表';
 
 /*==============================================================*/
+/* Table: Food_Activity                                         */
+/*==============================================================*/
+create table Food_Activity
+(
+   ID                   int not null auto_increment,
+   UserID               int,
+   FileID               int,
+   Title                varchar(100),
+   Location             varchar(100),
+   StartDate            datetime,
+   EndDate              datetime,
+   DetailLocation       varchar(100),
+   Description          text,
+   primary key (ID)
+);
+
+alter table Food_Activity comment '美食活动表';
+
+/*==============================================================*/
 /* Table: Food_Step                                             */
 /*==============================================================*/
 create table Food_Step
@@ -68,7 +89,7 @@ alter table Food_Step comment '美食制作分步信息表';
 /*==============================================================*/
 create table System_User
 (
-   ID                   int not null auto_increment,
+   ID                   int not null,
    Username             varchar(100) not null,
    Password             varchar(100) not null,
    Salt                 varchar(100) not null,
@@ -76,7 +97,7 @@ create table System_User
    primary key (ID)
 );
 
-alter table System_User comment '系统用户表1';
+alter table System_User comment '系统用户表';
 
 /*==============================================================*/
 /* Table: food_collect                                          */
@@ -92,21 +113,24 @@ create table food_collect
 
 alter table food_collect comment '美食收藏表';
 
-alter table Food add constraint FK_Reference_3 foreign key (UserID)
-      references System_User (ID) on delete restrict on update restrict;
-
-alter table Food add constraint FK_Reference_4 foreign key (FileID)
+alter table Food add constraint FK_P_FileAttach_C_Food_FileID foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
 
-alter table Food_Step add constraint FK_Reference_5 foreign key (FoodID)
-      references Food (ID) on delete restrict on update restrict;
-
-alter table Food_Step add constraint FK_Reference_6 foreign key (FileID)
-      references File_Attach (ID) on delete restrict on update restrict;
-
-alter table food_collect add constraint FK_Reference_7 foreign key (UserID)
+alter table Food add constraint FK_P_SystemUser_C_Food_UserID foreign key (UserID)
       references System_User (ID) on delete restrict on update restrict;
 
-alter table food_collect add constraint FK_Reference_8 foreign key (FoodID)
+alter table Food_Activity add constraint FK_P_FileAttach_C_FoodActivity_FileID foreign key (FileID)
+      references File_Attach (ID) on delete restrict on update restrict;
+
+alter table Food_Activity add constraint FK_P_SystemUser_C_FoodActivity_UserID foreign key (UserID)
+      references System_User (ID) on delete restrict on update restrict;
+
+alter table Food_Step add constraint FK_P_FileAttach_C_FoodStep_FileID foreign key (FileID)
+      references File_Attach (ID) on delete restrict on update restrict;
+
+alter table food_collect add constraint FK_P_Food_C_FoodCollect_FoodID foreign key (FoodID)
       references Food (ID) on delete restrict on update restrict;
+
+alter table food_collect add constraint FK_P_SystemUser_C_FoodCollect_UserID foreign key (UserID)
+      references System_User (ID) on delete restrict on update restrict;
 

@@ -152,6 +152,56 @@
                   
 
                  	</form>
+                 </div>
+                 
+                 
+                  <div class="my-publish-box2 no-show">
+                	<form  action="${ctx}/" method="post"  enctype="multipart/form-data" id="activity-publish-box">
+                   
+                       <div class="input-group mb-3">
+ 							<label for="activity_name" class="font-weight-bold m-1 mr-4 text-right">活动名称</label>
+                        	<input type="text" name="activity_name" class="form-control" id="activity_name" placeholder="请输入活动名称" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+ 						</div>
+ 						<div class="input-group mb-3">
+ 							<div class="col-4">
+ 								<label for="activity_location" class="font-weight-bold m-1 mr-4 text-right">活动地点</label>
+                        		<input type="text" name="activity_location" class="form-control" id="activity_location" placeholder="请输入活动地点" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+ 							</div>
+ 						
+ 						
+ 							<div class="col-8">
+	 							<label for="activity_location_detail" class="font-weight-bold m-1 mr-4 text-right">活动详细地址</label>
+	                        	<input type="text" name="activity_location_detail" class="form-control" id="activity_location_detail" placeholder="请输入活动详细地址" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+ 							</div>
+ 							
+ 						</div>
+ 					
+ 						<div class="input-group mb-3">
+ 						
+ 							<div class="col-6">
+	 							<label for="activity_startDate" class="font-weight-bold m-1 mr-4 text-right">活动开始时间</label>
+	                        	<input type="text" name="activity_startDate" class="form-control" id="activity_startDate" placeholder="请输入活动开始时间" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+                        	</div>
+                        	
+                        	<div class="col-6">
+	                        	<label for="activity_endDate" class="font-weight-bold m-1 mr-4 text-right">活动截止时间</label>
+	                        	<input type="text" name="activity_endDate" class="form-control" id="activity_endDate" placeholder="请输入活动截止时间" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+ 							</div>
+ 						</div>
+ 						
+ 						<div class="input-group mb-3">
+ 							<label for="activity_description" class="font-weight-bold m-1 mr-4 text-right">活动描述</label>
+                        	<input type="text" name="activity_description" class="form-control" id="activity_description" placeholder="请输入活动描述" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+ 						</div>
+ 						
+ 						<div class="input-group mb-3">
+ 							<div class="col-3">
+		                        <label for="activity_postnum" class="font-weight-bold m-1 mr-4 text-right">上传海报数量</label>
+		                        <input type="text" name="activity_postnum" class="form-control" id="activity_postnum" placeholder="上传海报数量" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+                    		</div>
+	                            <button type="button" class="btn btn-success float-right ml-5 mt-3" id="btn_postConfirm">确定</button>
+                        </div>
+                 	</form>
                 </div>
               </div>
         </div>

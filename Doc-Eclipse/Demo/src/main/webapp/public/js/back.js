@@ -76,5 +76,68 @@ $(document).ready(function () {
 	    	}
 	});
 
-	
+	$("#btn_postConfirm").click(function(){
+		var postNum = $("input[name='activity_postnum']").val();
+		
+		$(".postDiv").remove();
+		$(".submitPostDiv").remove();
+		
+		for(var i = 1 ; i <= postNum ; i++){
+			var postDiv = '';
+			postDiv += '<div class="input-group mb-3 postDiv">';
+			postDiv += '<div class="input-group mb-3 mt-3">';
+			postDiv += '<label for="activity_pic'+i+'" class="font-weight-bold m-1 mr-4 text-right">上传照片</label>';
+			postDiv += '<input type="file" name="pic" id="activity-pic'+i+'" class="activity-pic" accept="image/*"  required/>';
+			postDiv += '<div id="image-holder2'+i+'" class="image-holder2"> </div>';
+			postDiv += '</div></div>';
+			$("#activity-publish-box").append(postDiv);
+		}
+		
+		var submitDiv = '<div class="input-group mb-3 submitPostDiv"> <button type="submit" class="btn btn-light mx-auto">提交</button></div>';
+		$("#activity-publish-box").append(submitDiv);
+		
+		for(var j = 1 ; j <= postNum ; j++){
+	    	let index = j;
+	    	let inputDiv = "#activity_pic"+index;
+	    	let imageHolderDiv = "#image-holder2"+index;
+	    	
+	    	 $(inputDiv).on('change', function () {
+	    		  
+	    	        //获取上传文件的数量
+	    	        var countFiles = $(this)[0].files.length;
+	    	         
+	    	        var imgPath = $(this)[0].value;
+	    	        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+	    	        var image_holder = $(imageHolderDiv);
+	    	        image_holder.empty();
+	    	         
+	    	        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+	    	         if (typeof (FileReader) != "undefined") {
+	    	         
+	    	          // 循环所有要上传的图片
+	    	          for (var i = 0; i < countFiles; i++) {
+	    	         
+	    	           var reader = new FileReader();
+	    	           reader.onload = function (e) {
+	    	            $("<img />", {
+	    	             "src": e.target.result,
+	    	              "class": "thumb-image"
+	    	            }).appendTo(image_holder);
+	    	           }
+	    	         
+	    	           image_holder.show();
+	    	           reader.readAsDataURL($(this)[0].files[i]);
+	    	          }
+	    	         
+	    	         } else {
+	    	          alert("你的浏览器不支持FileReader！");
+	    	         }
+	    	        } else {
+	    	         alert("请选择图像文件。");
+	    	        }
+	    	       });
+	    	    
+	    	}
+		
+	});
 })
