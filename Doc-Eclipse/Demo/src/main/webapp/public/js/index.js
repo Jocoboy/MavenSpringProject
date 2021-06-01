@@ -30,6 +30,7 @@ $(document).ready(function () {
         $(".my-reserve-box").addClass("no-show");
         $(".my-settings-box").addClass("no-show");
         $(".my-publish-box").addClass("no-show");
+        $(".my-publish-box2").addClass("no-show");
     }
 
     function initAll() {
@@ -37,6 +38,7 @@ $(document).ready(function () {
         $("#my-reserve").removeClass("text-light").removeClass("bg-c2").addClass("c1").addClass("bg-c3");
         $("#my-settings").removeClass("text-light").removeClass("bg-c2").addClass("c1").addClass("bg-c3");
         $("#my-publish-food").removeClass("text-light").removeClass("bg-c2").addClass("c1").addClass("bg-c3");
+        $("#my-publish-activity").removeClass("text-light").removeClass("bg-c2").addClass("c1").addClass("bg-c3");
     }
 
     $("#my-fav").click(function () {
@@ -72,7 +74,14 @@ $(document).ready(function () {
     });
     
     
-
+    $("#my-publish-activity").click(function () {
+        clearAll();
+        $(".my-publish-box2").removeClass("no-show");
+        initAll();
+        $("#my-publish-activity").removeClass("c1").removeClass("bg-c3");
+        $("#my-publish-activity").addClass("text-light").addClass("bg-c2");
+    });
+    
     
    
     
