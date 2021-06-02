@@ -1,6 +1,7 @@
 package edu.zstu.entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "food_activity")
@@ -25,26 +27,37 @@ public class FoodActivityEntity extends BaseEntity {
 	
 	private String Title;
 	private String Location;
-	private Date StartDate;
-	private Date EndDate;
+//	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	private String  StartDate;
+//	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	private String EndDate;
 	private String DetailLocation;
 	private String Description;
 	
 	private UserEntity user;
 	private FileAttachEntity fileAttach;
 
-	private List<FileAttachEntity> fileAttachList;
-	private int postNum;
+//	private List<FileAttachEntity> fileAttachList;
+//	private int postNum;
 	
-	@OneToOne
-	@Cascade(value = {CascadeType.REFRESH })
-	@JoinColumn(name = "FileID")
-	public FileAttachEntity getFileAttach() {
-		return fileAttach;
-	}
-	public void setFileAttach(FileAttachEntity fileAttach) {
-		this.fileAttach = fileAttach;
-	}
+	
+//	@OneToMany
+//	@Cascade(value = {CascadeType.ALL })
+//	@OrderBy("StepNo ASC")
+//	public List<FileAttachEntity> getFileAttachList() {
+//		return fileAttachList;
+//	}
+//	public void setFileAttachList(List<FileAttachEntity> fileAttachList) {
+//		this.fileAttachList = fileAttachList;
+//	}
+
+//	public int getPostNum() {
+//		return postNum;
+//	}
+//	public void setPostNum(int postNum) {
+//		this.postNum = postNum;
+//	}
+	
 	
 	@ManyToOne(targetEntity = UserEntity.class)
 	@Cascade(value = {CascadeType.REFRESH })
@@ -56,24 +69,19 @@ public class FoodActivityEntity extends BaseEntity {
 		this.user = user;
 	}
 	
-	
-	public int getPostNum() {
-		return postNum;
-	}
-	public void setPostNum(int postNum) {
-		this.postNum = postNum;
-	}
-	
-	@OneToMany
-	@Cascade(value = {CascadeType.ALL })
+	@OneToOne
+	@Cascade(value = {CascadeType.REFRESH })
 	@JoinColumn(name = "FileID")
-	@OrderBy("StepNo ASC")
-	public List<FileAttachEntity> getFileAttachList() {
-		return fileAttachList;
+	public FileAttachEntity getFileAttach() {
+		return fileAttach;
 	}
-	public void setFileAttachList(List<FileAttachEntity> fileAttachList) {
-		this.fileAttachList = fileAttachList;
+	public void setFileAttach(FileAttachEntity fileAttach) {
+		this.fileAttach = fileAttach;
 	}
+	
+
+
+
 	
 	
 	@Column(name = "Title")
@@ -92,25 +100,25 @@ public class FoodActivityEntity extends BaseEntity {
 		Location = location;
 	}
 
-	@Column(name = "StartDate")
-	public Date getStartDate() {
+	@Column(name = "Startdate")
+	public String getStartDate() {
 		return StartDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		StartDate = startDate;
 	}
 	
 	
-	@Column(name = "EndDate")
-	public Date getEndDate() {
+	@Column(name = "Enddate")
+	public String getEndDate() {
 		return EndDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		EndDate = endDate;
 	}
 	
 	
-	@Column(name = "DetailLocation")
+	@Column(name = "Detaillocation")
 	public String getDetailLocation() {
 		return DetailLocation;
 	}
