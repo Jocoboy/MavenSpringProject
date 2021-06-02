@@ -3,6 +3,10 @@ package edu.zstu.web;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,17 +43,18 @@ public class ActivityController {
 	@RequestMapping(value = "/deploy", method = RequestMethod.POST)
 	public @ResponseBody String handleDeployDatas
 	(
-			@RequestParam(value="pic")CommonsMultipartFile[] files,
+			@RequestParam(value="activity_pic")CommonsMultipartFile[] files,
 			@RequestParam(value="activity_name")String activityName,
-			@RequestParam(value="activity_location")String activityLocation,
+			@RequestParam(value="activity_location")  String activityLocation,
 			@RequestParam(value="activity_location_detail")String activityLocationDetail,
-			@RequestParam(value="activity_startDate")Date startDate,
-			@RequestParam(value="activity_endDate")Date endDate,
+			@RequestParam(value="activity_startDate")String startDate ,
+			@RequestParam(value="activity_endDate")String endDate,
 			@RequestParam(value="activity_description")String activityDescription,
 			@RequestParam(value="activity_postnum")int activityPostnum,
 			HttpServletRequest request
 	) throws IOException{
 		
+		System.out.println("handleDeployDatas...........");
 		
 		FoodActivityEntity activity = new FoodActivityEntity();
 		List<FileAttachEntity> fileAttachList = new ArrayList<FileAttachEntity>();
@@ -81,12 +87,15 @@ public class ActivityController {
 		activity.setTitle(activityName);
 		activity.setLocation(activityLocation);
 		activity.setDetailLocation(activityLocationDetail);
-		activity.setStartDate(startDate);
-		activity.setEndDate(endDate);
+//		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+//		activity.setStartDate(LocalDateTime.parse(startDate.replace('T', ' '),dateTimeFormatter));
+//		activity.setEndDate(LocalDateTime.parse(endDate.replace('T', ' '),dateTimeFormatter));
+		activity.setStartDate(startDate.replace('T', ' '));
+		activity.setEndDate(endDate.replace('T', ' '));
 		activity.setDescription(activityDescription);
 		
-		activity.setPostNum(activityPostnum);
-		activity.setFileAttachList(fileAttachList);
+//		activity.setPostNum(activityPostnum);
+//		activity.setFileAttachList(fileAttachList);
 		activity.setUser(userService.getCurrUser());
 		
 		foodActivityService.save(activity);
