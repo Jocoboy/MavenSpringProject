@@ -36,7 +36,19 @@ public class FoodActivityEntity extends BaseEntity {
 	
 	private UserEntity user;
 	private FileAttachEntity fileAttach;
+	private List<MultiActivityFileAttachEntity> multiFileAttachList; 
 
+	@OneToMany
+	@Cascade(value = {CascadeType.ALL })
+	@JoinColumn(name = "ActivityID")
+	public List<MultiActivityFileAttachEntity> getMultiFileAttachList() {
+		return multiFileAttachList;
+	}
+	public void setMultiFileAttachList(List<MultiActivityFileAttachEntity> multiFileAttachList) {
+		this.multiFileAttachList = multiFileAttachList;
+	}
+	
+	
 //	private List<FileAttachEntity> fileAttachList;
 //	private int postNum;
 	
@@ -133,5 +145,5 @@ public class FoodActivityEntity extends BaseEntity {
 	public void setDescription(String description) {
 		Description = description;
 	}
-	
+
 }

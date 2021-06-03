@@ -24,6 +24,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import edu.zstu.entity.FileAttachEntity;
 import edu.zstu.entity.FoodActivityEntity;
+import edu.zstu.entity.MultiActivityFileAttachEntity;
 import edu.zstu.service.FileAttachService;
 import edu.zstu.service.FoodActivityService;
 import edu.zstu.service.UserService;
@@ -57,7 +58,9 @@ public class ActivityController {
 		System.out.println("handleDeployDatas...........");
 		
 		FoodActivityEntity activity = new FoodActivityEntity();
-		List<FileAttachEntity> fileAttachList = new ArrayList<FileAttachEntity>();
+//		List<FileAttachEntity> fileAttachList = new ArrayList<FileAttachEntity>();
+		List<MultiActivityFileAttachEntity> multiFileAttachList = new ArrayList<MultiActivityFileAttachEntity>();
+		
 		
 		for(int i = 0 ; i < files.length ; i++){
 			FileAttachEntity fileAttach = new FileAttachEntity();
@@ -82,7 +85,10 @@ public class ActivityController {
 			if(i == 0){
 				activity.setFileAttach(fileAttach);
 			}
-			fileAttachList.add(fileAttach);
+			
+			MultiActivityFileAttachEntity multiActivityFileAttach = new MultiActivityFileAttachEntity();
+			multiActivityFileAttach.setFileAttach(fileAttach);
+			multiFileAttachList.add(multiActivityFileAttach);
 		}
 		activity.setTitle(activityName);
 		activity.setLocation(activityLocation);
@@ -96,6 +102,7 @@ public class ActivityController {
 		
 //		activity.setPostNum(activityPostnum);
 //		activity.setFileAttachList(fileAttachList);
+		activity.setMultiFileAttachList(multiFileAttachList);
 		activity.setUser(userService.getCurrUser());
 		
 		foodActivityService.save(activity);
