@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2021/6/1 11:09:03                            */
+/* Created on:     2021/6/3 16:26:13                            */
 /*==============================================================*/
 
 
@@ -11,6 +11,8 @@ drop table if exists Food;
 drop table if exists Food_Activity;
 
 drop table if exists Food_Step;
+
+drop table if exists Multi_Food_Activity_FileAttach;
 
 drop table if exists System_User;
 
@@ -85,6 +87,19 @@ create table Food_Step
 alter table Food_Step comment '美食制作分步信息表';
 
 /*==============================================================*/
+/* Table: Multi_Food_Activity_FileAttach                        */
+/*==============================================================*/
+create table Multi_Food_Activity_FileAttach
+(
+   ID                   int not null auto_increment,
+   ActivityID           int,
+   FileID               int,
+   primary key (ID)
+);
+
+alter table Multi_Food_Activity_FileAttach comment '美食活动附件索引表';
+
+/*==============================================================*/
 /* Table: System_User                                           */
 /*==============================================================*/
 create table System_User
@@ -127,6 +142,12 @@ alter table Food_Activity add constraint FK_P_SystemUser_C_FoodActivity_UserID f
 
 alter table Food_Step add constraint FK_P_FileAttach_C_FoodStep_FileID foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
+
+alter table Multi_Food_Activity_FileAttach add constraint FK_P_FileAttach_C_Mult_FileAttach foreign key (FileID)
+      references File_Attach (ID) on delete restrict on update restrict;
+
+alter table Multi_Food_Activity_FileAttach add constraint FK_P_FoodActivity_C_Multi_FileAttach foreign key (ActivityID)
+      references Food_Activity (ID) on delete restrict on update restrict;
 
 alter table food_collect add constraint FK_P_Food_C_FoodCollect_FoodID foreign key (FoodID)
       references Food (ID) on delete restrict on update restrict;
