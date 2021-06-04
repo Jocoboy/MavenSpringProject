@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2021/6/3 16:26:13                            */
+/* Created on:     2021/6/4 16:07:50                            */
 /*==============================================================*/
 
 
@@ -15,6 +15,8 @@ drop table if exists Food_Step;
 drop table if exists Multi_Food_Activity_FileAttach;
 
 drop table if exists System_User;
+
+drop table if exists activity_reserve;
 
 drop table if exists food_collect;
 
@@ -115,6 +117,20 @@ create table System_User
 alter table System_User comment '系统用户表';
 
 /*==============================================================*/
+/* Table: activity_reserve                                      */
+/*==============================================================*/
+create table activity_reserve
+(
+   ID                   int not null auto_increment,
+   UserID               int,
+   ActivityID           int,
+   Reserve              bool,
+   primary key (ID)
+);
+
+alter table activity_reserve comment '活动预约信息表';
+
+/*==============================================================*/
 /* Table: food_collect                                          */
 /*==============================================================*/
 create table food_collect
@@ -143,11 +159,17 @@ alter table Food_Activity add constraint FK_P_SystemUser_C_FoodActivity_UserID f
 alter table Food_Step add constraint FK_P_FileAttach_C_FoodStep_FileID foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
 
-alter table Multi_Food_Activity_FileAttach add constraint FK_P_FileAttach_C_Mult_FileAttach foreign key (FileID)
+alter table Multi_Food_Activity_FileAttach add constraint FK_P_FileAttach_C_MultFileAttach_FileID foreign key (FileID)
       references File_Attach (ID) on delete restrict on update restrict;
 
-alter table Multi_Food_Activity_FileAttach add constraint FK_P_FoodActivity_C_Multi_FileAttach foreign key (ActivityID)
+alter table Multi_Food_Activity_FileAttach add constraint FK_P_FoodActivity_C_MultiFileAttach_ActivityID foreign key (ActivityID)
       references Food_Activity (ID) on delete restrict on update restrict;
+
+alter table activity_reserve add constraint FK_P_FoodActivity_C_ActivityReserve_ActivityID foreign key (ActivityID)
+      references Food_Activity (ID) on delete restrict on update restrict;
+
+alter table activity_reserve add constraint FK_P_SystemUser_C_ActivityReserve_UserID foreign key (UserID)
+      references System_User (ID) on delete restrict on update restrict;
 
 alter table food_collect add constraint FK_P_Food_C_FoodCollect_FoodID foreign key (FoodID)
       references Food (ID) on delete restrict on update restrict;

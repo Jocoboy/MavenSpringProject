@@ -62,6 +62,7 @@
 				/register = anon
 				
 				/getFoodList = anon
+				/getActivityList = anon
 				/foodLikes = anon
 				
 				/login = authc
