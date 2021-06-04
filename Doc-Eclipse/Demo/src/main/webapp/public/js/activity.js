@@ -47,7 +47,7 @@ $(document).ready(function () {
 				
 				
 				$.each(data.records, function(index, item){
-					activityHtmls += '<div class="border mt-4 mx-auto">';
+					activityHtmls += '<div class="border mt-4 mx-auto"  style="margin:0 auto; text-align:center;">';
 					activityHtmls += ' <h1 class="">'+item.title+'</h1>';
 					activityHtmls += '<p class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i>'+ item.location+'</p>';
 					activityHtmls += '<span class="mr-5"><span class="font-weight-bold">活动时间</span>:'+item.startDate+' —— '+ item.endDate +'</span>';
@@ -57,8 +57,8 @@ $(document).ready(function () {
 					for(let i = 0 ; i < item.multiFileAttachList.length ; i++){
 						activityHtmls += '<img src="'+item.multiFileAttachList[i].fileAttach.filePath+'" alt="'+item.title+'" class="d-block w-50 mb-4  mx-auto">';
 					}
+					activityHtmls += '<a class="btn btn-primary"  href="/Demo/activity-detail?id='+item.id+'" title="'+item.title+'" target="_self">查看详情</a>';
 					activityHtmls += ' <div class="text-center">';
-					activityHtmls += '<button type="button" class="btn btn-outline-secondary m-4">点击预约</button>'
 					activityHtmls += '</div></div>'
 				});
 			}else{
@@ -67,6 +67,8 @@ $(document).ready(function () {
 			}
 			$("#activity-container").html(activityHtmls);
 		}, "json");	
+		
+	
 	}
 	
 	

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false" %>       
+<%@ page isELIgnored="false" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <html lang="en">
@@ -14,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx}/public/css/font-awesome.min.css">
-    <title>臻品生活家-活动</title>
+    <title>臻品生活家-活动详情</title>
 </head>
 
 <body>
@@ -27,8 +31,8 @@
                 <a class="navbar-brand" href="">臻品生活家</a>
                 <div class="col-sm-8">
                     <button class="btn btn-light" type="button" id="btn_home">首页</button>
-                    <button class="btn btn-light" type="button" id="btn_food">美食</button>
-                    <button class="btn btn-light active" type="button" id="btn_activity">活动</button>
+                    <button class="btn btn-light active" type="button" id="btn_food">美食</button>
+                    <button class="btn btn-light" type="button" id="btn_activity">活动</button>
                     <button class="btn btn-light" type="button" data-toggle="modal"
                         data-target="#staticBackdrop">关于</button>
 
@@ -61,21 +65,27 @@
 <!--                     <button class="btn btn-light" type="button" id="btn_login">登录</button> -->
 <!--                     <button class="btn btn-light" type="button" id="btn_register">注册</button> -->
 <!--                 </div> -->
-				<jsp:include page="layout/info.jsp"/>
+					<jsp:include page="layout/info.jsp"/>
             </div>
         </nav>
-
-
-	    <!-- 美食列表 -->
-	    <div class="row" id="activity-container">         
-			
-	    </div> 
-	    <!-- 美食列表 row -->
-		<div class="row">
-			<ul id='example'  style="margin:0 auto; text-align:center;"></ul>
-		</div>
-	    <hr class="hr-divider">
-        
+        <div class="container mt-5" style="margin:0 auto; text-align:center;">
+        	<span style="display:none;" id="activityId"><c:out value="${activity.id}" default="null"></c:out></span>
+        	<h1><c:out value="${activity.title}" default="null"></c:out></h1>
+        	<p class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i><c:out value="${activity.location}" default="null"></c:out></p>
+        	<p class="text-muted"><span class="font-weight-bold">活动地点: <c:out value="${activity.detailLocation}" default="null"></c:out></span></p>
+        	<p class="text-muted"><span class="font-weight-bold">活动开始时间: <c:out value="${activity.startDate}" default="null"></c:out></span></p>
+        	<p class="text-muted"><span class="font-weight-bold">活动截止时间: <c:out value="${activity.endDate}" default="null"></c:out></span></p>
+        	<c:forEach var="multFile" items="${activity.multiFileAttachList}" varStatus="varMultFile" >
+                 <img src="${multFile.fileAttach.filePath}" alt="${activity.title}" class="d-block m-5 mx-auto">
+            </c:forEach>
+        	<p class="text-muted"><span class="font-weight-bold">活动介绍:<c:out value="${activity.description}" default="null"></c:out></span><p>
+           	<c:if test="${reserveFlag==null || reserveFlag==false}">
+           		<button type="button" class="btn btn-outline-secondary m-4" id="btn_addReserve">点击预约</button>
+           	 </c:if>
+			<c:if test="${reserveFlag==!null || reserveFlag==true}">
+				<button type="button" class="btn btn-success m-4" id="btn_cancelReserve">已预约，点击取消</button>
+			</c:if>
+        </div>
         <footer class="navbar-fixed-bottom ">
             <div class="container mt-5">
                 <div class="justify-content-left">
@@ -91,7 +101,6 @@
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
-<script src="${ctx}/public/js/bootstrap-paginator.min.js"></script>
 <script src="${ctx}/public/js/index.js"></script>
-<script src="${ctx}/public/js/activity.js"></script>
+<script src="${ctx}/public/js/activity-detail.js"></script>
 </html>
