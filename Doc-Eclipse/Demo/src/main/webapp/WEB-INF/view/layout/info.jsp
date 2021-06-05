@@ -32,6 +32,11 @@
 			}
 			else{
 // 				alert("data is not null");
+				var usernameInput = $("#input-username");
+				if(usernameInput!=null){
+					usernameInput.attr( "placeholder",data);
+				}
+
 				$('#btn_login').html(data);
 				$('#btn_register').html('注销');
 			    $("#btn_login").click(function () {

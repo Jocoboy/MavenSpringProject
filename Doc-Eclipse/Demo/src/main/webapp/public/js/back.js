@@ -4,7 +4,46 @@
 
 $(document).ready(function () {
 	
-
+	$("#btn_settings").click(function(){
+		 var data = {};
+		 data.oldPassword =  $("input[name='password-old']").val();
+		 data.newPassword =  $("input[name='password-new']").val();
+		 var newPasswordConfirm = $("input[name='password-new-confirm']").val();
+		 if(data.newPassword != newPasswordConfirm){
+			 alert("两次密码不一致");
+			 return;
+		 }
+		 $.post("modifyPassword",data,function(res){
+			 	if(res==false){
+			 		 alert("密码修改失败！原密码错误或其他原因");
+			 		 return;
+			 	}
+			 	else{
+			 		alert("密码修改成功！请重新登录");
+			 		$.get("logout",function(e){
+			 			window.location = "login";
+				 		
+				 		/****    更新导航条用户信息   *****/
+						$('#btn_login').html('登录');
+						$('#btn_register').html('注册');
+					    $("#btn_login").click(function () {
+					        window.location = "login";
+					        $("#btn_login").addClass("active");
+					    	$("#btn_register").removeClass("active");
+					    });
+					    $("#btn_register").click(function () {
+					    
+					        window.location = "register";
+					    	$("#btn_login").removeClass("active");
+					    	$("#btn_register").addClass("active");
+					    });
+			 		});
+			 		
+			 	}
+		});
+	});
+		
+	
 	
 	 $("#food-pic0").on('change', function () {
 		  
