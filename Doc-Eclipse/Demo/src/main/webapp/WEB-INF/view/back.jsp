@@ -82,32 +82,28 @@
                       <div class="fav-box-title" style="font-family: '宋体';">
                         <h3 class="text-light p-2" style="font-size: 1em;">我收藏的美食</h3>
                       </div>
-                      <ul class="list-group list-group-flush">
-                      	<c:out value="${collectList}" default="null"></c:out>
-                        <c:forEach var="collectItem" items="${collectList}" varStatus="varCollect" >
-	                         <li class="list-group-item bg-c1 m-3">
-		                         <a href="${ctx}/food-detail?id=<c:out value="${collectItem.food.id}" default="null"></c:out>" class="c1">
-		                         	<c:out value="${collectItem.food.foodName}" default="null"></c:out>
-		                         </a>
-		                     </li>
-                		</c:forEach>
-                      </ul>
+                         <!-- 收藏列表 -->
+					    <div class="row" id="collect-container">         
+							
+					    </div> <!-- 收藏列表 row -->
+						<div class="row">
+							<ul id='example'  style="margin:0 auto; text-align:center;"></ul>
+						</div>
+						
+						
                   </div>
 
                   <div class="my-reserve-box no-show">
                     <div class="fav-box-title" style="font-family: '宋体';">
                       <h3 class="text-light p-2" style="font-size: 1em;">我预约的活动</h3>
                     </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item bg-c1 m-3">
-                          <a href="#" class="c1">新年家宴-云南菜</a>
-                          <button type="button" class="btn btn-danger float-right">取消</button>
-                        </li>
-                      <li class="list-group-item bg-c1 m-3">
-                          <a href="#" class="c1">新年家宴-法式甜品</a>
-                          <button type="button" class="btn btn-success float-right">活动结束</button>
-                        </li>
-                    </ul>
+                        <!-- 预约列表 -->
+					    <div class="row" id="reserve-container">         
+							
+					    </div> <!-- 预约列表 row -->
+						<div class="row">
+							<ul id='example'  style="margin:0 auto; text-align:center;"></ul>
+						</div>
                 </div>
 
                 <div class="my-settings-box no-show">
@@ -220,7 +216,10 @@
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script src="${ctx}/public/js/bootstrap-paginator.min.js"></script>
 <script src="${ctx}/public/js/index.js"></script>
 <script src="${ctx}/public/js/logout.js"></script>
 <script src="${ctx}/public/js/back.js"></script>
+<script src="${ctx}/public/js/manage-reserve.js"></script>
+<script src="${ctx}/public/js/manage-collect.js"></script>
 </html>
