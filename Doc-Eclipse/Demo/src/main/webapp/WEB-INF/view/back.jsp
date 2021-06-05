@@ -111,13 +111,16 @@
                     <form id="settings_form" class="mx-auto mt-5  p-3 mb-5 bg-white w-50">
                         <div class="form-row">
                           <div class="form-group col-md-6 offset-md-3">
-                            <input type="text" class="form-control" name="email" placeholder="邮件" autocomplete="off" />
+                            <input id="input-username" type="text" class="form-control" name="email" placeholder="邮件" autocomplete="off"  disabled="disabled"/>
                           </div>
                           <div class="form-group col-md-6 offset-md-3">
                             <input type="password" class="form-control" name="password-old" placeholder="原来的密码" autocomplete="off" />
                           </div>
                           <div class="form-group col-md-6 offset-md-3">
                             <input type="password" class="form-control" name="password-new" placeholder="输入新密码" autocomplete="off" />
+                          </div>
+                          <div class="form-group col-md-6 offset-md-3">
+                            <input type="password" class="form-control" name="password-new-confirm" placeholder="再次输入新密码" autocomplete="off" />
                           </div>
                           <button type="button" class="btn btn-info col-md-6 offset-md-3 mb-5" id="btn_settings">提交</button>
                         </div>
